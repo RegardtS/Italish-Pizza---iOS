@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE8D1FF419B478D10087FC6E /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FF319B478D10087FC6E /* TabViewController.m */; };
+		CE8D1FF519B478D10087FC6E /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FF319B478D10087FC6E /* TabViewController.m */; };
+		CE8D1FF819B479A40087FC6E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FF719B479A40087FC6E /* LoginViewController.m */; };
+		CE8D1FF919B479A40087FC6E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FF719B479A40087FC6E /* LoginViewController.m */; };
+		CE8D1FFC19B484550087FC6E /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FFB19B484550087FC6E /* DatabaseHelper.m */; };
+		CE8D1FFD19B484550087FC6E /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FFB19B484550087FC6E /* DatabaseHelper.m */; };
+		CE8D1FFF19B4A67A0087FC6E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8D1FFE19B4A67A0087FC6E /* libsqlite3.dylib */; };
 		CEBA237319B46D6F00436F01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237219B46D6F00436F01 /* Foundation.framework */; };
 		CEBA237519B46D6F00436F01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237419B46D6F00436F01 /* CoreGraphics.framework */; };
 		CEBA237719B46D6F00436F01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237619B46D6F00436F01 /* UIKit.framework */; };
@@ -14,8 +21,6 @@
 		CEBA237F19B46D6F00436F01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA237E19B46D6F00436F01 /* main.m */; };
 		CEBA238319B46D6F00436F01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA238219B46D6F00436F01 /* AppDelegate.m */; };
 		CEBA238619B46D6F00436F01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBA238419B46D6F00436F01 /* Main.storyboard */; };
-		CEBA238919B46D6F00436F01 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA238819B46D6F00436F01 /* FirstViewController.m */; };
-		CEBA238C19B46D6F00436F01 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA238B19B46D6F00436F01 /* SecondViewController.m */; };
 		CEBA238E19B46D6F00436F01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBA238D19B46D6F00436F01 /* Images.xcassets */; };
 		CEBA239519B46D6F00436F01 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA239419B46D6F00436F01 /* XCTest.framework */; };
 		CEBA239619B46D6F00436F01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237219B46D6F00436F01 /* Foundation.framework */; };
@@ -35,6 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE8D1FF219B478D10087FC6E /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		CE8D1FF319B478D10087FC6E /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
+		CE8D1FF619B479A40087FC6E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CE8D1FF719B479A40087FC6E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CE8D1FFA19B484550087FC6E /* DatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseHelper.h; sourceTree = "<group>"; };
+		CE8D1FFB19B484550087FC6E /* DatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseHelper.m; sourceTree = "<group>"; };
+		CE8D1FFE19B4A67A0087FC6E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CEBA236F19B46D6F00436F01 /* Italish Pizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italish Pizza.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBA237219B46D6F00436F01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEBA237419B46D6F00436F01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -46,10 +58,6 @@
 		CEBA238119B46D6F00436F01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CEBA238219B46D6F00436F01 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CEBA238519B46D6F00436F01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CEBA238719B46D6F00436F01 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		CEBA238819B46D6F00436F01 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		CEBA238A19B46D6F00436F01 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		CEBA238B19B46D6F00436F01 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		CEBA238D19B46D6F00436F01 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEBA239319B46D6F00436F01 /* Italish PizzaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Italish PizzaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBA239419B46D6F00436F01 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -63,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8D1FFF19B4A67A0087FC6E /* libsqlite3.dylib in Frameworks */,
 				CEBA237519B46D6F00436F01 /* CoreGraphics.framework in Frameworks */,
 				CEBA237719B46D6F00436F01 /* UIKit.framework in Frameworks */,
 				CEBA237319B46D6F00436F01 /* Foundation.framework in Frameworks */,
@@ -82,6 +91,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE8D1FF119B478C30087FC6E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE8D1FF219B478D10087FC6E /* TabViewController.h */,
+				CE8D1FF319B478D10087FC6E /* TabViewController.m */,
+				CE8D1FF619B479A40087FC6E /* LoginViewController.h */,
+				CE8D1FF719B479A40087FC6E /* LoginViewController.m */,
+				CE8D1FFA19B484550087FC6E /* DatabaseHelper.h */,
+				CE8D1FFB19B484550087FC6E /* DatabaseHelper.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		CEBA236619B46D6F00436F01 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +126,7 @@
 		CEBA237119B46D6F00436F01 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE8D1FFE19B4A67A0087FC6E /* libsqlite3.dylib */,
 				CEBA237219B46D6F00436F01 /* Foundation.framework */,
 				CEBA237419B46D6F00436F01 /* CoreGraphics.framework */,
 				CEBA237619B46D6F00436F01 /* UIKit.framework */,
@@ -115,13 +138,10 @@
 		CEBA237819B46D6F00436F01 /* Italish Pizza */ = {
 			isa = PBXGroup;
 			children = (
+				CE8D1FF119B478C30087FC6E /* ViewControllers */,
 				CEBA238119B46D6F00436F01 /* AppDelegate.h */,
 				CEBA238219B46D6F00436F01 /* AppDelegate.m */,
 				CEBA238419B46D6F00436F01 /* Main.storyboard */,
-				CEBA238719B46D6F00436F01 /* FirstViewController.h */,
-				CEBA238819B46D6F00436F01 /* FirstViewController.m */,
-				CEBA238A19B46D6F00436F01 /* SecondViewController.h */,
-				CEBA238B19B46D6F00436F01 /* SecondViewController.m */,
 				CEBA238D19B46D6F00436F01 /* Images.xcassets */,
 				CEBA237919B46D6F00436F01 /* Supporting Files */,
 			);
@@ -254,10 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEBA238C19B46D6F00436F01 /* SecondViewController.m in Sources */,
+				CE8D1FFC19B484550087FC6E /* DatabaseHelper.m in Sources */,
+				CE8D1FF419B478D10087FC6E /* TabViewController.m in Sources */,
 				CEBA238319B46D6F00436F01 /* AppDelegate.m in Sources */,
-				CEBA238919B46D6F00436F01 /* FirstViewController.m in Sources */,
 				CEBA237F19B46D6F00436F01 /* main.m in Sources */,
+				CE8D1FF819B479A40087FC6E /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +286,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8D1FFD19B484550087FC6E /* DatabaseHelper.m in Sources */,
+				CE8D1FF519B478D10087FC6E /* TabViewController.m in Sources */,
 				CEBA23A119B46D6F00436F01 /* Italish_PizzaTests.m in Sources */,
+				CE8D1FF919B479A40087FC6E /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +488,7 @@
 				CEBA23A619B46D6F00436F01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEBA23A719B46D6F00436F01 /* Build configuration list for PBXNativeTarget "Italish PizzaTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +497,7 @@
 				CEBA23A919B46D6F00436F01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,12 +7,26 @@
 //
 
 #import "AppDelegate.h"
+#import "DatabaseHelper.h"
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    
+
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (![defaults objectForKey:@"Init"]) {
+        DatabaseHelper *db = [[DatabaseHelper alloc] init];
+        [db startingStuff];
+        [db addUserWithUsername:@"Admin" withPassword:@"Password" withAuthority:@"1"];
+        [defaults setBool:YES forKey:@"Init"];
+        [defaults synchronize];
+    }
+    
+    
+    
     return YES;
 }
 							

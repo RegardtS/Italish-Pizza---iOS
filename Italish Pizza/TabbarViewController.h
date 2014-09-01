@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  TabbarViewController.h
 //  Italish Pizza
 //
 //  Created by Saint on 2014/09/01.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface TabbarViewController : UITabBarController
 
 @end

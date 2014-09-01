@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  TabViewController.h
 //  Italish Pizza
 //
 //  Created by Saint on 2014/09/01.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface TabViewController : UITabBarController
 
 @end

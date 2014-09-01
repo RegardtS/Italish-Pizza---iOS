@@ -1,0 +1,19 @@
+//
+//  LoginViewController.h
+//  Italish Pizza
+//
+//  Created by Saint on 2014/09/01.
+//  Copyright (c) 2014 Saint. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface LoginViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UITextField *txtUsername;
+@property (strong, nonatomic) IBOutlet UITextField *txtPassword;
+
+- (IBAction)loginPressed:(id)sender;
+- (IBAction)nextTapped:(id)sender;
+
+@end
