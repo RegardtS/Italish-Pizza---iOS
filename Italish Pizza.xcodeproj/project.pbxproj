@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CEBA237319B46D6F00436F01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237219B46D6F00436F01 /* Foundation.framework */; };
+		CEBA237519B46D6F00436F01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237419B46D6F00436F01 /* CoreGraphics.framework */; };
+		CEBA237719B46D6F00436F01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237619B46D6F00436F01 /* UIKit.framework */; };
+		CEBA237D19B46D6F00436F01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBA237B19B46D6F00436F01 /* InfoPlist.strings */; };
+		CEBA237F19B46D6F00436F01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA237E19B46D6F00436F01 /* main.m */; };
+		CEBA238319B46D6F00436F01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA238219B46D6F00436F01 /* AppDelegate.m */; };
+		CEBA238619B46D6F00436F01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBA238419B46D6F00436F01 /* Main.storyboard */; };
+		CEBA238919B46D6F00436F01 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA238819B46D6F00436F01 /* FirstViewController.m */; };
+		CEBA238C19B46D6F00436F01 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA238B19B46D6F00436F01 /* SecondViewController.m */; };
+		CEBA238E19B46D6F00436F01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBA238D19B46D6F00436F01 /* Images.xcassets */; };
+		CEBA239519B46D6F00436F01 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA239419B46D6F00436F01 /* XCTest.framework */; };
+		CEBA239619B46D6F00436F01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237219B46D6F00436F01 /* Foundation.framework */; };
+		CEBA239719B46D6F00436F01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237619B46D6F00436F01 /* UIKit.framework */; };
+		CEBA239F19B46D6F00436F01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBA239D19B46D6F00436F01 /* InfoPlist.strings */; };
+		CEBA23A119B46D6F00436F01 /* Italish_PizzaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA23A019B46D6F00436F01 /* Italish_PizzaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CEBA239819B46D6F00436F01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEBA236719B46D6F00436F01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEBA236E19B46D6F00436F01;
+			remoteInfo = "Italish Pizza";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CEBA236F19B46D6F00436F01 /* Italish Pizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italish Pizza.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEBA237219B46D6F00436F01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CEBA237419B46D6F00436F01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CEBA237619B46D6F00436F01 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CEBA237A19B46D6F00436F01 /* Italish Pizza-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Italish Pizza-Info.plist"; sourceTree = "<group>"; };
+		CEBA237C19B46D6F00436F01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CEBA237E19B46D6F00436F01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CEBA238019B46D6F00436F01 /* Italish Pizza-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Italish Pizza-Prefix.pch"; sourceTree = "<group>"; };
+		CEBA238119B46D6F00436F01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CEBA238219B46D6F00436F01 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CEBA238519B46D6F00436F01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEBA238719B46D6F00436F01 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		CEBA238819B46D6F00436F01 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		CEBA238A19B46D6F00436F01 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		CEBA238B19B46D6F00436F01 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		CEBA238D19B46D6F00436F01 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CEBA239319B46D6F00436F01 /* Italish PizzaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Italish PizzaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEBA239419B46D6F00436F01 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CEBA239C19B46D6F00436F01 /* Italish PizzaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Italish PizzaTests-Info.plist"; sourceTree = "<group>"; };
+		CEBA239E19B46D6F00436F01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CEBA23A019B46D6F00436F01 /* Italish_PizzaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Italish_PizzaTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEBA236C19B46D6F00436F01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBA237519B46D6F00436F01 /* CoreGraphics.framework in Frameworks */,
+				CEBA237719B46D6F00436F01 /* UIKit.framework in Frameworks */,
+				CEBA237319B46D6F00436F01 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEBA239019B46D6F00436F01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBA239519B46D6F00436F01 /* XCTest.framework in Frameworks */,
+				CEBA239719B46D6F00436F01 /* UIKit.framework in Frameworks */,
+				CEBA239619B46D6F00436F01 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEBA236619B46D6F00436F01 = {
+			isa = PBXGroup;
+			children = (
+				CEBA237819B46D6F00436F01 /* Italish Pizza */,
+				CEBA239A19B46D6F00436F01 /* Italish PizzaTests */,
+				CEBA237119B46D6F00436F01 /* Frameworks */,
+				CEBA237019B46D6F00436F01 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEBA237019B46D6F00436F01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA236F19B46D6F00436F01 /* Italish Pizza.app */,
+				CEBA239319B46D6F00436F01 /* Italish PizzaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEBA237119B46D6F00436F01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA237219B46D6F00436F01 /* Foundation.framework */,
+				CEBA237419B46D6F00436F01 /* CoreGraphics.framework */,
+				CEBA237619B46D6F00436F01 /* UIKit.framework */,
+				CEBA239419B46D6F00436F01 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEBA237819B46D6F00436F01 /* Italish Pizza */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA238119B46D6F00436F01 /* AppDelegate.h */,
+				CEBA238219B46D6F00436F01 /* AppDelegate.m */,
+				CEBA238419B46D6F00436F01 /* Main.storyboard */,
+				CEBA238719B46D6F00436F01 /* FirstViewController.h */,
+				CEBA238819B46D6F00436F01 /* FirstViewController.m */,
+				CEBA238A19B46D6F00436F01 /* SecondViewController.h */,
+				CEBA238B19B46D6F00436F01 /* SecondViewController.m */,
+				CEBA238D19B46D6F00436F01 /* Images.xcassets */,
+				CEBA237919B46D6F00436F01 /* Supporting Files */,
+			);
+			path = "Italish Pizza";
+			sourceTree = "<group>";
+		};
+		CEBA237919B46D6F00436F01 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA237A19B46D6F00436F01 /* Italish Pizza-Info.plist */,
+				CEBA237B19B46D6F00436F01 /* InfoPlist.strings */,
+				CEBA237E19B46D6F00436F01 /* main.m */,
+				CEBA238019B46D6F00436F01 /* Italish Pizza-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CEBA239A19B46D6F00436F01 /* Italish PizzaTests */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA23A019B46D6F00436F01 /* Italish_PizzaTests.m */,
+				CEBA239B19B46D6F00436F01 /* Supporting Files */,
+			);
+			path = "Italish PizzaTests";
+			sourceTree = "<group>";
+		};
+		CEBA239B19B46D6F00436F01 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA239C19B46D6F00436F01 /* Italish PizzaTests-Info.plist */,
+				CEBA239D19B46D6F00436F01 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEBA236E19B46D6F00436F01 /* Italish Pizza */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEBA23A419B46D6F00436F01 /* Build configuration list for PBXNativeTarget "Italish Pizza" */;
+			buildPhases = (
+				CEBA236B19B46D6F00436F01 /* Sources */,
+				CEBA236C19B46D6F00436F01 /* Frameworks */,
+				CEBA236D19B46D6F00436F01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Italish Pizza";
+			productName = "Italish Pizza";
+			productReference = CEBA236F19B46D6F00436F01 /* Italish Pizza.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CEBA239219B46D6F00436F01 /* Italish PizzaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEBA23A719B46D6F00436F01 /* Build configuration list for PBXNativeTarget "Italish PizzaTests" */;
+			buildPhases = (
+				CEBA238F19B46D6F00436F01 /* Sources */,
+				CEBA239019B46D6F00436F01 /* Frameworks */,
+				CEBA239119B46D6F00436F01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEBA239919B46D6F00436F01 /* PBXTargetDependency */,
+			);
+			name = "Italish PizzaTests";
+			productName = "Italish PizzaTests";
+			productReference = CEBA239319B46D6F00436F01 /* Italish PizzaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEBA236719B46D6F00436F01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Saint;
+				TargetAttributes = {
+					CEBA239219B46D6F00436F01 = {
+						TestTargetID = CEBA236E19B46D6F00436F01;
+					};
+				};
+			};
+			buildConfigurationList = CEBA236A19B46D6F00436F01 /* Build configuration list for PBXProject "Italish Pizza" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CEBA236619B46D6F00436F01;
+			productRefGroup = CEBA237019B46D6F00436F01 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEBA236E19B46D6F00436F01 /* Italish Pizza */,
+				CEBA239219B46D6F00436F01 /* Italish PizzaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEBA236D19B46D6F00436F01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBA238E19B46D6F00436F01 /* Images.xcassets in Resources */,
+				CEBA237D19B46D6F00436F01 /* InfoPlist.strings in Resources */,
+				CEBA238619B46D6F00436F01 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEBA239119B46D6F00436F01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBA239F19B46D6F00436F01 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEBA236B19B46D6F00436F01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBA238C19B46D6F00436F01 /* SecondViewController.m in Sources */,
+				CEBA238319B46D6F00436F01 /* AppDelegate.m in Sources */,
+				CEBA238919B46D6F00436F01 /* FirstViewController.m in Sources */,
+				CEBA237F19B46D6F00436F01 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEBA238F19B46D6F00436F01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBA23A119B46D6F00436F01 /* Italish_PizzaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CEBA239919B46D6F00436F01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEBA236E19B46D6F00436F01 /* Italish Pizza */;
+			targetProxy = CEBA239819B46D6F00436F01 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CEBA237B19B46D6F00436F01 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBA237C19B46D6F00436F01 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CEBA238419B46D6F00436F01 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBA238519B46D6F00436F01 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CEBA239D19B46D6F00436F01 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEBA239E19B46D6F00436F01 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CEBA23A219B46D6F00436F01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		CEBA23A319B46D6F00436F01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEBA23A519B46D6F00436F01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Italish Pizza/Italish Pizza-Prefix.pch";
+				INFOPLIST_FILE = "Italish Pizza/Italish Pizza-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CEBA23A619B46D6F00436F01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Italish Pizza/Italish Pizza-Prefix.pch";
+				INFOPLIST_FILE = "Italish Pizza/Italish Pizza-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CEBA23A819B46D6F00436F01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Italish Pizza.app/Italish Pizza";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Italish Pizza/Italish Pizza-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Italish PizzaTests/Italish PizzaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		CEBA23A919B46D6F00436F01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Italish Pizza.app/Italish Pizza";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Italish Pizza/Italish Pizza-Prefix.pch";
+				INFOPLIST_FILE = "Italish PizzaTests/Italish PizzaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEBA236A19B46D6F00436F01 /* Build configuration list for PBXProject "Italish Pizza" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEBA23A219B46D6F00436F01 /* Debug */,
+				CEBA23A319B46D6F00436F01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEBA23A419B46D6F00436F01 /* Build configuration list for PBXNativeTarget "Italish Pizza" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEBA23A519B46D6F00436F01 /* Debug */,
+				CEBA23A619B46D6F00436F01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CEBA23A719B46D6F00436F01 /* Build configuration list for PBXNativeTarget "Italish PizzaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEBA23A819B46D6F00436F01 /* Debug */,
+				CEBA23A919B46D6F00436F01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEBA236719B46D6F00436F01 /* Project object */;
+}
