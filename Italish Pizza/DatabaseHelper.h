@@ -16,6 +16,6 @@
 
 -(void)addUserWithUsername:(NSString *)username withPassword:(NSString *)password withAuthority:(NSString *)auth;
 -(NSString *)loginWithUsername:(NSString *)username withPassword:(NSString *)password;
-
+-(NSMutableArray *)getAllStaff;
 
 @end

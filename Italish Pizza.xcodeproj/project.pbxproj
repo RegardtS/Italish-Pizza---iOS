@@ -14,6 +14,9 @@
 		CE8D1FFC19B484550087FC6E /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FFB19B484550087FC6E /* DatabaseHelper.m */; };
 		CE8D1FFD19B484550087FC6E /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FFB19B484550087FC6E /* DatabaseHelper.m */; };
 		CE8D1FFF19B4A67A0087FC6E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8D1FFE19B4A67A0087FC6E /* libsqlite3.dylib */; };
+		CE8D200219B66E5C0087FC6E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D200119B66E5C0087FC6E /* UserViewController.m */; };
+		CE8D200C19B689F40087FC6E /* 19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE8D200B19B689F40087FC6E /* 19.jpg */; };
+		CE8D200F19B6936D0087FC6E /* edit_user-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8D200E19B6936D0087FC6E /* edit_user-32.png */; };
 		CEBA237319B46D6F00436F01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237219B46D6F00436F01 /* Foundation.framework */; };
 		CEBA237519B46D6F00436F01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237419B46D6F00436F01 /* CoreGraphics.framework */; };
 		CEBA237719B46D6F00436F01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237619B46D6F00436F01 /* UIKit.framework */; };
@@ -47,6 +50,10 @@
 		CE8D1FFA19B484550087FC6E /* DatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseHelper.h; sourceTree = "<group>"; };
 		CE8D1FFB19B484550087FC6E /* DatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseHelper.m; sourceTree = "<group>"; };
 		CE8D1FFE19B4A67A0087FC6E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CE8D200019B66E5C0087FC6E /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		CE8D200119B66E5C0087FC6E /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		CE8D200B19B689F40087FC6E /* 19.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 19.jpg; sourceTree = "<group>"; };
+		CE8D200E19B6936D0087FC6E /* edit_user-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit_user-32.png"; sourceTree = "<group>"; };
 		CEBA236F19B46D6F00436F01 /* Italish Pizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italish Pizza.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBA237219B46D6F00436F01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CEBA237419B46D6F00436F01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -100,8 +107,26 @@
 				CE8D1FF719B479A40087FC6E /* LoginViewController.m */,
 				CE8D1FFA19B484550087FC6E /* DatabaseHelper.h */,
 				CE8D1FFB19B484550087FC6E /* DatabaseHelper.m */,
+				CE8D200019B66E5C0087FC6E /* UserViewController.h */,
+				CE8D200119B66E5C0087FC6E /* UserViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CE8D200319B685230087FC6E /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		CE8D200D19B6933B0087FC6E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CE8D200B19B689F40087FC6E /* 19.jpg */,
+				CE8D200E19B6936D0087FC6E /* edit_user-32.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		CEBA236619B46D6F00436F01 = {
@@ -138,6 +163,8 @@
 		CEBA237819B46D6F00436F01 /* Italish Pizza */ = {
 			isa = PBXGroup;
 			children = (
+				CE8D200D19B6933B0087FC6E /* Images */,
+				CE8D200319B685230087FC6E /* Libraries */,
 				CE8D1FF119B478C30087FC6E /* ViewControllers */,
 				CEBA238119B46D6F00436F01 /* AppDelegate.h */,
 				CEBA238219B46D6F00436F01 /* AppDelegate.m */,
@@ -253,7 +280,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8D200F19B6936D0087FC6E /* edit_user-32.png in Resources */,
 				CEBA238E19B46D6F00436F01 /* Images.xcassets in Resources */,
+				CE8D200C19B689F40087FC6E /* 19.jpg in Resources */,
 				CEBA237D19B46D6F00436F01 /* InfoPlist.strings in Resources */,
 				CEBA238619B46D6F00436F01 /* Main.storyboard in Resources */,
 			);
@@ -277,6 +306,7 @@
 				CE8D1FFC19B484550087FC6E /* DatabaseHelper.m in Sources */,
 				CE8D1FF419B478D10087FC6E /* TabViewController.m in Sources */,
 				CEBA238319B46D6F00436F01 /* AppDelegate.m in Sources */,
+				CE8D200219B66E5C0087FC6E /* UserViewController.m in Sources */,
 				CEBA237F19B46D6F00436F01 /* main.m in Sources */,
 				CE8D1FF819B479A40087FC6E /* LoginViewController.m in Sources */,
 			);
