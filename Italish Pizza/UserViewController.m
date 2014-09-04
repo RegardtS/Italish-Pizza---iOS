@@ -21,11 +21,15 @@
     NSArray *arStaffDetails;
     NSArray *arAuthChoices;
     NSMutableArray *arStaffNames;
+    NSMutableArray *arStaffAuth;
+    NSMutableArray *arStaffID;
     DatabaseHelper *db;
 }
 
 @synthesize tblUsers;
 @synthesize pkAuth;
+@synthesize txtUsername,txtPassword,txtPasswordVerify;
+@synthesize lblUsername;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -50,14 +54,18 @@
     
     
     arStaffNames=[[NSMutableArray alloc] init];
+    arStaffAuth=[[NSMutableArray alloc] init];
+    arStaffID=[[NSMutableArray alloc] init];
+    
     arStaffDetails = [db getAllStaff];
     
-    for (int i = 0; i < [arStaffDetails count]; i+=2) {
+    
+    for (int i = 0; i < [arStaffDetails count]; i+=3) {
         [arStaffNames addObject:[arStaffDetails objectAtIndex:i]];
+        [arStaffAuth addObject:[arStaffDetails objectAtIndex:i+1]];
+        [arStaffID addObject:[arStaffDetails objectAtIndex:i+2]];
     }
     [arStaffNames addObject:@"Add new user"];
-    
-    
     
     arAuthChoices = @[@"Runner", @"Waiter", @"Manager"];
     pkAuth.delegate = self;
@@ -96,12 +104,25 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Taped : %i",indexPath.row);
+    if (indexPath.row == [arStaffNames count]-1) {
+        txtUsername.text = @"";
+        txtPassword.text = @"";
+        txtPasswordVerify.text = @"";
+        lblUsername.text = @"<Username>";
+    }else{
+        lblUsername.text = [arStaffNames objectAtIndex:indexPath.row];
+        
+        //        KEY_STAFF_NAME,KEY_STAFF_AUTHORITY,KEY_STAFF_ID
+        
+    }
+    
+    
 }
 
 
-
-
+- (IBAction)btnSave:(id)sender {
+    NSLog(@"saved pressed");
+}
 
 
 
@@ -119,8 +140,7 @@
 }
 
 
-- (IBAction)btnSave:(id)sender {
-}
+
 @end
 
 

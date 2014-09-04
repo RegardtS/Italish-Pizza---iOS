@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtUsername;
 @property (strong, nonatomic) IBOutlet UITextField *txtPassword;
 @property (strong, nonatomic) IBOutlet UITextField *txtPasswordVerify;
+@property (strong, nonatomic) IBOutlet UITextView *lblUsername;
 
 - (IBAction)btnSave:(id)sender;
 

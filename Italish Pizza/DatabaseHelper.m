@@ -21,6 +21,7 @@ NSString *DATABASE_NAME = @"ItalishDB.db";
 NSString *TABLE_STAFF = @"STAFF";
 
 // Staff Table Columns names
+NSString *KEY_STAFF_ID = @"id";
 NSString *KEY_STAFF_NAME = @"name";
 NSString *KEY_STAFF_PASSWORD = @"password";
 NSString *KEY_STAFF_AUTHORITY = @"authority";
@@ -29,8 +30,8 @@ NSString *CREATE_TABLE_STAFF;
 
 
 -(void)startingStuff{
-    CREATE_TABLE_STAFF = [NSString stringWithFormat:@"CREATE TABLE %@ (id INTEGER PRIMARY KEY AUTOINCREMENT,%@ TEXT, %@ TEXT,%@ TEXT)",
-                          TABLE_STAFF,KEY_STAFF_NAME,KEY_STAFF_PASSWORD,KEY_STAFF_AUTHORITY];
+    CREATE_TABLE_STAFF = [NSString stringWithFormat:@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT,%@ TEXT, %@ TEXT,%@ INT)",
+                          TABLE_STAFF,KEY_STAFF_ID,KEY_STAFF_NAME,KEY_STAFF_PASSWORD,KEY_STAFF_AUTHORITY];
     
     [self createDB];
 }
@@ -61,7 +62,7 @@ NSString *CREATE_TABLE_STAFF;
 
 
 
--(void)addUserWithUsername:(NSString *)username withPassword:(NSString *)password withAuthority:(NSString *)auth{
+-(void)addUserWithUsername:(NSString *)username withPassword:(NSString *)password withAuthority:(NSInteger)auth{
     NSLog(@"is it even getting here?");
     NSString *docsDir;
     NSArray *dirPaths;
@@ -72,7 +73,7 @@ NSString *CREATE_TABLE_STAFF;
     const char *dbpath = [dbPath UTF8String];
     if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
         const char *insert_stmt;
-        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@) VALUES(\"%@\",\"%@\",\"%@\") ",
+        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@) VALUES(\"%@\",\"%@\",%i) ",
                                      TABLE_STAFF,
                                      KEY_STAFF_NAME,
                                      KEY_STAFF_PASSWORD,
@@ -131,13 +132,15 @@ NSString *CREATE_TABLE_STAFF;
         const char *dbpath = [dbPath UTF8String];
         sqlite3_stmt    *statement;
         if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK){
-            NSString *querySQL = [NSString stringWithFormat:@"SELECT %@,%@ FROM %@",KEY_STAFF_NAME,KEY_STAFF_AUTHORITY,TABLE_STAFF];
+            NSString *querySQL = [NSString stringWithFormat:@"SELECT %@,%@,%@ FROM %@",KEY_STAFF_NAME,KEY_STAFF_AUTHORITY,KEY_STAFF_ID,TABLE_STAFF];
             const char *query_stmt = [querySQL UTF8String];
             if (sqlite3_prepare_v2(ItalishDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
                 while (sqlite3_step(statement)== SQLITE_ROW) {
                     NSString *CAT = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 0)];
                     [tempArray addObject:CAT];
                     CAT = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 1)];
+                    [tempArray addObject:CAT];
+                    CAT = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 2)];
                     [tempArray addObject:CAT];
                 }
                 sqlite3_finalize(statement);

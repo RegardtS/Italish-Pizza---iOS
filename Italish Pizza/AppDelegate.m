@@ -20,7 +20,7 @@
     if (![defaults objectForKey:@"Init"]) {
         DatabaseHelper *db = [[DatabaseHelper alloc] init];
         [db startingStuff];
-        [db addUserWithUsername:@"Admin" withPassword:@"Password" withAuthority:@"1"];
+//        [db addUserWithUsername:@"Admin" withPassword:@"Password" withAuthority:2];
         [defaults setBool:YES forKey:@"Init"];
         [defaults synchronize];
     }

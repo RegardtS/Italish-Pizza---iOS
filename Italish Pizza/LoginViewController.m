@@ -26,10 +26,9 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+  
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,16 +37,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 - (IBAction)loginPressed:(id)sender {
     
@@ -55,9 +44,7 @@
         [self showErrorAlert];
     }else{
         
-        DatabaseHelper *db = [[DatabaseHelper alloc] init];
-        [db addUserWithUsername:@"Test" withPassword:@"Tester" withAuthority:@"test"];
-        
+        DatabaseHelper *db = [[DatabaseHelper alloc] init]; 
         NSString *username =[db loginWithUsername:txtUsername.text withPassword:txtPassword.text];
         if (username.length == 0) {
             [self showErrorAlert];
