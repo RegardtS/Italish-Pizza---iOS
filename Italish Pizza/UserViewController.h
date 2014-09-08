@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtPasswordVerify;
 @property (strong, nonatomic) IBOutlet UITextView *lblUsername;
 
+@property (strong, nonatomic) IBOutlet UIView *containerView;
+
 - (IBAction)btnSave:(id)sender;
 
 @end

@@ -30,10 +30,10 @@
 @synthesize pkAuth;
 @synthesize txtUsername,txtPassword,txtPasswordVerify;
 @synthesize lblUsername;
+@synthesize containerView;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -43,6 +43,8 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    containerView.hidden = YES;
     
     tblUsers.delegate = self;
     tblUsers.dataSource = self;
@@ -57,20 +59,32 @@
     arStaffAuth=[[NSMutableArray alloc] init];
     arStaffID=[[NSMutableArray alloc] init];
     
+    
+    
+    
+    arAuthChoices = @[@"Runner", @"Waiter", @"Manager"];
+    pkAuth.delegate = self;
+    pkAuth.dataSource = self;
+    
+    
+    [self initalSetup];
+    
+    
+}
+
+-(void)initalSetup{
+    [arStaffNames removeAllObjects];
+    [arStaffAuth removeAllObjects];
+    [arStaffID removeAllObjects];
+    
+    
     arStaffDetails = [db getAllStaff];
-    
-    
     for (int i = 0; i < [arStaffDetails count]; i+=3) {
         [arStaffNames addObject:[arStaffDetails objectAtIndex:i]];
         [arStaffAuth addObject:[arStaffDetails objectAtIndex:i+1]];
         [arStaffID addObject:[arStaffDetails objectAtIndex:i+2]];
     }
     [arStaffNames addObject:@"Add new user"];
-    
-    arAuthChoices = @[@"Runner", @"Waiter", @"Manager"];
-    pkAuth.delegate = self;
-    pkAuth.dataSource = self;
-    
     
 }
 
@@ -104,24 +118,53 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if ([containerView isHidden]) {
+        containerView.hidden = NO;
+    }
+    
     if (indexPath.row == [arStaffNames count]-1) {
         txtUsername.text = @"";
         txtPassword.text = @"";
         txtPasswordVerify.text = @"";
-        lblUsername.text = @"<Username>";
+        lblUsername.text = @"Tap to edit";
+        [pkAuth selectRow:0 inComponent:0 animated:YES];
     }else{
         lblUsername.text = [arStaffNames objectAtIndex:indexPath.row];
-        
-        //        KEY_STAFF_NAME,KEY_STAFF_AUTHORITY,KEY_STAFF_ID
-        
+        [pkAuth selectRow:[[arStaffAuth objectAtIndex:indexPath.row] integerValue] inComponent:0 animated:YES];
+        [pkAuth reloadAllComponents];
     }
-    
-    
 }
 
 
 - (IBAction)btnSave:(id)sender {
     NSLog(@"saved pressed");
+    if (![txtPassword.text isEqualToString:txtPasswordVerify.text]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Passwords don't match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }else{
+        NSIndexPath *selectedIndexPath = [tblUsers indexPathForSelectedRow];
+        NSMutableDictionary *staffDetails = [[NSMutableDictionary alloc] init];
+        
+        [staffDetails setObject:lblUsername.text  forKey:@"Staff_Name"];
+        [staffDetails setObject:txtPassword.text  forKey:@"Staff_Password"];
+        [staffDetails setObject:[arAuthChoices objectAtIndex:[pkAuth selectedRowInComponent:0]]  forKey:@"Staff_Auth"];
+        [staffDetails setObject:[arStaffID objectAtIndex:selectedIndexPath.row]  forKey:@"Staff_ID"];
+        
+
+        for (id key in staffDetails) {
+            NSLog(@"key: %@, value: %@ \n", key, [staffDetails objectForKey:key]);
+        }
+        
+        
+        [db updateStaff:staffDetails];
+        [self initalSetup];
+        [tblUsers reloadData];
+        
+        txtPassword.text = @"";
+        txtPasswordVerify.text= @"";
+        
+    }
 }
 
 

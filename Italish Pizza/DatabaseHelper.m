@@ -18,7 +18,11 @@ sqlite3 *ItalishDB;
 //DATABASE NAME
 NSString *DATABASE_NAME = @"ItalishDB.db";
 
+//TABLE NAMES
 NSString *TABLE_STAFF = @"STAFF";
+NSString *TABLE_BOOKINGS = @"BOOKING";
+NSString *TABLE_CUSTOMER = @"CUSTOMER";
+
 
 // Staff Table Columns names
 NSString *KEY_STAFF_ID = @"id";
@@ -26,12 +30,57 @@ NSString *KEY_STAFF_NAME = @"name";
 NSString *KEY_STAFF_PASSWORD = @"password";
 NSString *KEY_STAFF_AUTHORITY = @"authority";
 
+
+//Booking Table Column names
+NSString *KEY_BOOKING_ID = @"id";
+NSString *KEY_BOOKING_NAME = @"name";
+NSString *KEY_BOOKING_TIME = @"time";
+NSString *KEY_BOOKING_DATE = @"date";
+NSString *KEY_BOOKING_CONTACT = @"contact";
+NSString *KEY_BOOKING_SIZE = @"size";
+
+
+
+//Customer Table Column names
+NSString *KEY_CUSTOMER_ID = @"id";
+NSString *KEY_CUSTOMER_NAME = @"name";
+NSString *KEY_CUSTOMER_CONTACTNUM = @"contactnum";
+NSString *KEY_CUSTOMER_EMAIL = @"email";
+
+
+
 NSString *CREATE_TABLE_STAFF;
+NSString *CREATE_TABLE_BOOKING;
+NSString *CREATE_TABLE_CUSTOMER;
+
+
+
+             
 
 
 -(void)startingStuff{
     CREATE_TABLE_STAFF = [NSString stringWithFormat:@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT,%@ TEXT, %@ TEXT,%@ INT)",
-                          TABLE_STAFF,KEY_STAFF_ID,KEY_STAFF_NAME,KEY_STAFF_PASSWORD,KEY_STAFF_AUTHORITY];
+                          TABLE_STAFF,
+                          KEY_STAFF_ID,
+                          KEY_STAFF_NAME,
+                          KEY_STAFF_PASSWORD,
+                          KEY_STAFF_AUTHORITY];
+    
+    CREATE_TABLE_BOOKING = [NSString stringWithFormat:@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT,%@ TEXT, %@ TEXT,%@ TEXT, %@ TEXT,%@ INT)",
+                            TABLE_BOOKINGS,
+                            KEY_BOOKING_ID,
+                            KEY_BOOKING_NAME,
+                            KEY_BOOKING_TIME,
+                            KEY_BOOKING_DATE,
+                            KEY_BOOKING_CONTACT,
+                            KEY_BOOKING_SIZE];
+    
+    CREATE_TABLE_CUSTOMER = [NSString stringWithFormat:@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT, %@ TEXT, %@ TEXT, %@ TEXT)",
+                             TABLE_CUSTOMER,
+                             KEY_CUSTOMER_ID,
+                             KEY_CUSTOMER_NAME,
+                             KEY_CUSTOMER_CONTACTNUM,
+                             KEY_CUSTOMER_EMAIL];
     
     [self createDB];
 }
@@ -53,16 +102,38 @@ NSString *CREATE_TABLE_STAFF;
             }else{
                 NSLog(@"Failed to create table\n%s",errMsg);
             }
+            
+            sql_stmt =[CREATE_TABLE_BOOKING cStringUsingEncoding:NSASCIIStringEncoding];
+            if (sqlite3_exec(ItalishDB, sql_stmt, NULL, NULL, &errMsg) == SQLITE_OK){
+                NSLog(@"Created sucessfully CREATE_TABLE_BOOKING");
+            }else{
+                NSLog(@"Failed to create tableB\n%s",errMsg);
+            }
+
+            
+            sql_stmt =[CREATE_TABLE_CUSTOMER cStringUsingEncoding:NSASCIIStringEncoding];
+            if (sqlite3_exec(ItalishDB, sql_stmt, NULL, NULL, &errMsg) == SQLITE_OK){
+                NSLog(@"Created sucessfully CREATE_TABLE_CUSTOMER");
+            }else{
+                NSLog(@"Failed to create tableB\n%s",errMsg);
+            }
+            
+            
+            
             sqlite3_close(ItalishDB);
         } else {
             NSLog(@"Failed to create database");
         }
     }
+    
+    
+    
+    
 }
 
 
 
--(void)addUserWithUsername:(NSString *)username withPassword:(NSString *)password withAuthority:(NSInteger)auth{
+-(void)addStaffWithUsername:(NSString *)username withPassword:(NSString *)password withAuthority:(NSInteger)auth{
     NSLog(@"is it even getting here?");
     NSString *docsDir;
     NSArray *dirPaths;
@@ -149,6 +220,48 @@ NSString *CREATE_TABLE_STAFF;
         }
         return tempArray;
     }
+
+
+
+
+-(void)updateStaff:(NSDictionary *)staffDetails{
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
+    sqlite3_stmt *statement = nil;
+    const char *dbpath = [dbPath UTF8String];
+    if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
+        const char *update_stmt;
+        
+        int auth = 0;
+        if ([staffDetails[@"Staff_Auth"] isEqualToString:@"Manager"]) {
+            auth = 2;
+        }else if([staffDetails[@"Staff_Auth"] isEqualToString:@"Waiter"]){
+            auth = 1;
+        }
+        
+        
+        
+        NSString *updateStatement = [NSString stringWithFormat:@"UPDATE %@ SET %@ = \"%@\", %@ = \"%@\", %@ = %i WHERE %@=%@",
+                                     TABLE_STAFF,
+                                     KEY_STAFF_NAME,
+                                     staffDetails[@"Staff_Name"],
+                                     KEY_STAFF_PASSWORD,
+                                     staffDetails[@"Staff_Password"],
+                                     KEY_STAFF_AUTHORITY,
+                                     auth,
+                                     KEY_STAFF_ID,
+                                     staffDetails[@"Staff_ID"]];
+        NSLog(@"query == %@",updateStatement);
+        update_stmt = [updateStatement UTF8String];
+        sqlite3_prepare_v2(ItalishDB, update_stmt, -1, &statement, NULL);
+        sqlite3_step(statement);
+    }
+    sqlite3_finalize(statement);
+    sqlite3_close(ItalishDB);
+}
 
 
 
