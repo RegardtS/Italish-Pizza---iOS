@@ -192,34 +192,60 @@ NSString *CREATE_TABLE_CUSTOMER;
 }
 
 -(NSMutableArray *)getAllStaff{
-        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-        
-        NSString *docsDir;
-        NSArray *dirPaths;
-        dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        docsDir = dirPaths[0];
-        dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
-        
-        const char *dbpath = [dbPath UTF8String];
-        sqlite3_stmt    *statement;
-        if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK){
-            NSString *querySQL = [NSString stringWithFormat:@"SELECT %@,%@,%@ FROM %@",KEY_STAFF_NAME,KEY_STAFF_AUTHORITY,KEY_STAFF_ID,TABLE_STAFF];
-            const char *query_stmt = [querySQL UTF8String];
-            if (sqlite3_prepare_v2(ItalishDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
-                while (sqlite3_step(statement)== SQLITE_ROW) {
-                    NSString *CAT = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 0)];
-                    [tempArray addObject:CAT];
-                    CAT = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 1)];
-                    [tempArray addObject:CAT];
-                    CAT = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 2)];
-                    [tempArray addObject:CAT];
-                }
-                sqlite3_finalize(statement);
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
+    
+    const char *dbpath = [dbPath UTF8String];
+    sqlite3_stmt    *statement;
+    if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK){
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT %@,%@,%@ FROM %@",KEY_STAFF_NAME,KEY_STAFF_AUTHORITY,KEY_STAFF_ID,TABLE_STAFF];
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(ItalishDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
+            while (sqlite3_step(statement)== SQLITE_ROW) {
+                NSString *CAT = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 0)];
+                [tempArray addObject:CAT];
+                CAT = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 1)];
+                [tempArray addObject:CAT];
+                CAT = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 2)];
+                [tempArray addObject:CAT];
             }
-            sqlite3_close(ItalishDB);
+            sqlite3_finalize(statement);
         }
-        return tempArray;
+        sqlite3_close(ItalishDB);
     }
+    return tempArray;
+}
+-(NSMutableArray *)getAllStaffUsernames{
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
+    
+    const char *dbpath = [dbPath UTF8String];
+    sqlite3_stmt    *statement;
+    if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK){
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT %@ FROM %@",KEY_STAFF_NAME,TABLE_STAFF];
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(ItalishDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
+            while (sqlite3_step(statement)== SQLITE_ROW) {
+                NSString *CAT = [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 0)];
+                [tempArray addObject:CAT];
+            }
+            sqlite3_finalize(statement);
+        }
+        sqlite3_close(ItalishDB);
+    }
+    return tempArray;
+}
+
 
 
 

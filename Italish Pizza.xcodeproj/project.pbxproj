@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0B1F3C19ED626E00190DDE /* footer_lodyas.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0B1F3B19ED626E00190DDE /* footer_lodyas.png */; };
+		CE0B1F3E19ED644100190DDE /* clouds.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE0B1F3D19ED644100190DDE /* clouds.jpg */; };
 		CE8D1FF419B478D10087FC6E /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FF319B478D10087FC6E /* TabViewController.m */; };
 		CE8D1FF519B478D10087FC6E /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FF319B478D10087FC6E /* TabViewController.m */; };
 		CE8D1FF819B479A40087FC6E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FF719B479A40087FC6E /* LoginViewController.m */; };
@@ -31,6 +33,7 @@
 		CEBA239719B46D6F00436F01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237619B46D6F00436F01 /* UIKit.framework */; };
 		CEBA239F19B46D6F00436F01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBA239D19B46D6F00436F01 /* InfoPlist.strings */; };
 		CEBA23A119B46D6F00436F01 /* Italish_PizzaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA23A019B46D6F00436F01 /* Italish_PizzaTests.m */; };
+		CEC12E7A19C6DAA000358027 /* 20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEC12E7919C6DAA000358027 /* 20.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE0B1F3B19ED626E00190DDE /* footer_lodyas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footer_lodyas.png; sourceTree = "<group>"; };
+		CE0B1F3D19ED644100190DDE /* clouds.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clouds.jpg; sourceTree = "<group>"; };
 		CE8D1FF219B478D10087FC6E /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		CE8D1FF319B478D10087FC6E /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		CE8D1FF619B479A40087FC6E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 		CEBA239C19B46D6F00436F01 /* Italish PizzaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Italish PizzaTests-Info.plist"; sourceTree = "<group>"; };
 		CEBA239E19B46D6F00436F01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CEBA23A019B46D6F00436F01 /* Italish_PizzaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Italish_PizzaTests.m; sourceTree = "<group>"; };
+		CEC12E7919C6DAA000358027 /* 20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,9 @@
 		CE8D200D19B6933B0087FC6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CE0B1F3D19ED644100190DDE /* clouds.jpg */,
+				CE0B1F3B19ED626E00190DDE /* footer_lodyas.png */,
+				CEC12E7919C6DAA000358027 /* 20.jpg */,
 				CE8D200B19B689F40087FC6E /* 19.jpg */,
 				CE8D200E19B6936D0087FC6E /* edit_user-32.png */,
 			);
@@ -286,10 +295,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE8D200F19B6936D0087FC6E /* edit_user-32.png in Resources */,
+				CE0B1F3C19ED626E00190DDE /* footer_lodyas.png in Resources */,
 				CEBA238E19B46D6F00436F01 /* Images.xcassets in Resources */,
+				CE0B1F3E19ED644100190DDE /* clouds.jpg in Resources */,
 				CE8D200C19B689F40087FC6E /* 19.jpg in Resources */,
 				CEBA237D19B46D6F00436F01 /* InfoPlist.strings in Resources */,
 				CEBA238619B46D6F00436F01 /* Main.storyboard in Resources */,
+				CEC12E7A19C6DAA000358027 /* 20.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +459,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Italish Pizza/Italish Pizza-Prefix.pch";
 				INFOPLIST_FILE = "Italish Pizza/Italish Pizza-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -460,6 +473,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Italish Pizza/Italish Pizza-Prefix.pch";
 				INFOPLIST_FILE = "Italish Pizza/Italish Pizza-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -103,6 +103,7 @@
     NSArray *array = [dictionary objectForKey:@"data"];
     NSString *cellValue = [array objectAtIndex:indexPath.row];
     cell.textLabel.text = cellValue;
+    cell.detailTextLabel.text = cellValue;
     
     return cell;
 }
@@ -113,7 +114,7 @@
     NSArray *array = [dictionary objectForKey:@"data"];
     selectedCell = [array objectAtIndex:indexPath.row];
     
-    NSLog(@"%@", selectedCell);
+    NSLog(@"%@ %i", selectedCell, indexPath.row);
     
     [tblBookings deselectRowAtIndexPath:indexPath animated:YES];
 }

@@ -24,18 +24,12 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     if (![defaults objectForKey:@"LoggedIn"]) {
-         [self performSegueWithIdentifier:@"loginSegue" sender:self];
+        [self performSegueWithIdentifier:@"loginSegue" sender:self];
     }
-    
-    
-   
- 
 }
+
 
 - (void)viewDidLoad{
     [super viewDidLoad];

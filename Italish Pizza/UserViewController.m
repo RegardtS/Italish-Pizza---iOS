@@ -142,19 +142,24 @@
     if (![txtPassword.text isEqualToString:txtPasswordVerify.text]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Passwords don't match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        
+    }else if(![txtPassword hasText] || ![txtPasswordVerify hasText]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password field may not be empty" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
     }else{
         NSIndexPath *selectedIndexPath = [tblUsers indexPathForSelectedRow];
         NSMutableDictionary *staffDetails = [[NSMutableDictionary alloc] init];
         
         [staffDetails setObject:lblUsername.text  forKey:@"Staff_Name"];
         [staffDetails setObject:txtPassword.text  forKey:@"Staff_Password"];
+        NSLog(@"1st");
         [staffDetails setObject:[arAuthChoices objectAtIndex:[pkAuth selectedRowInComponent:0]]  forKey:@"Staff_Auth"];
-        [staffDetails setObject:[arStaffID objectAtIndex:selectedIndexPath.row]  forKey:@"Staff_ID"];
+        NSLog(@"2nd");
         
+        [staffDetails setObject:[arStaffID objectAtIndex:selectedIndexPath.row]  forKey:@"Staff_ID"];
+        NSLog(@"3rd");
 
-        for (id key in staffDetails) {
-            NSLog(@"key: %@, value: %@ \n", key, [staffDetails objectForKey:key]);
-        }
+
         
         
         [db updateStaff:staffDetails];

@@ -12,8 +12,15 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *txtUsername;
 @property (strong, nonatomic) IBOutlet UITextField *txtPassword;
+@property (strong, nonatomic) IBOutlet UIView *pinView;
+@property (strong, nonatomic) IBOutlet UIButton *btnLogin;
+
+
+- (IBAction)btnUsernameTapped:(id)sender;
+- (IBAction)btnPasswordTapped:(id)sender;
 
 - (IBAction)loginPressed:(id)sender;
-- (IBAction)nextTapped:(id)sender;
+
+- (IBAction)btnPinPressed:(id)sender;
 
 @end
