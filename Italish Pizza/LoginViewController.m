@@ -25,9 +25,22 @@ Boolean iOS8BugKiller;
 bool isShown = false;
 
 
+-(void)viewWillAppear:(BOOL)animated{
+   // [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    [self.navigationItem setHidesBackButton:YES];
+}
+
+
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"LoggedIn"]) {
+        [self performSegueWithIdentifier:@"tabbarSegue" sender:self];
+    }
+    
     db  = [[DatabaseHelper alloc] init];
     usernames = [[NSMutableArray alloc] init];
      [txtPassword setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
@@ -56,13 +69,9 @@ bool isShown = false;
 
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (iOS8BugKiller) {
-        NSLog(@"%i",buttonIndex);
         iOS8BugKiller = NO;
-        
         txtUsername.text = [usernames objectAtIndex:buttonIndex];
-        
     }
-
 }
 
 -(void)actionSheetCancel:(UIActionSheet *)actionSheet{
@@ -91,7 +100,6 @@ bool isShown = false;
     }
 }
 
-
 - (IBAction)loginPressed:(id)sender {
     
     if ([txtPassword.text length]==0 && [txtUsername.text length]==0) {
@@ -107,7 +115,9 @@ bool isShown = false;
             [defaults setValue:username forKey:@"Username"];
             [defaults synchronize];
             
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self cleanup];
+            
+            [self performSegueWithIdentifier:@"tabbarSegue" sender:self];
         }
     }
 }
@@ -125,7 +135,12 @@ bool isShown = false;
     
 }
 
-
+-(void)cleanup{
+    pinView.frame =  CGRectMake(342, 391, 341, 0);
+    btnLogin.frame = CGRectMake(403, 499, 218, 30);
+    txtPassword.text = @"";
+    txtUsername.text = @"Username";
+}
 
 -(void)showErrorAlert{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Username or Password incorrect" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
