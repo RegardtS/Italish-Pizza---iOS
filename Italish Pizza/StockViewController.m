@@ -7,6 +7,8 @@
 //
 
 #import "StockViewController.h"
+#import "StockTableViewCell.h"
+#import "DatabaseHelper.h"
 
 @interface StockViewController ()
 
@@ -15,79 +17,91 @@
 @implementation StockViewController
 
 @synthesize tblView;
+DatabaseHelper *db;
 
-NSDictionary *animals;
-NSArray *animalSectionTitles;
-NSArray *animalIndexTitles;
+
+
+NSMutableArray *dataArray;
+NSMutableArray *categories;
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    tblView.delegate = self;
+    
+    tblView.delegate =self;
     tblView.dataSource = self;
+
+    db = [[DatabaseHelper alloc] init];
     
-    animals = @{@"B" : @[@"Bear", @"Black Swan", @"Buffalo"],
-                @"C" : @[@"Camel", @"Cockatoo"],
-                @"D" : @[@"Dog", @"Donkey"],
-                @"E" : @[@"Emu"],
-                @"G" : @[@"Giraffe", @"Greater Rhea"],
-                @"H" : @[@"Hippopotamus", @"Horse"],
-                @"K" : @[@"Koala"],
-                @"L" : @[@"Lion", @"Llama"],
-                @"M" : @[@"Manatus", @"Meerkat"],
-                @"P" : @[@"Panda", @"Peacock", @"Pig", @"Platypus", @"Polar Bear"],
-                @"R" : @[@"Rhinoceros"],
-                @"S" : @[@"Seagull"],
-                @"T" : @[@"Tasmania Devil"],
-                @"W" : @[@"Whale", @"Whale Shark", @"Wombat"]};
+    dataArray = [[NSMutableArray alloc] init];
     
-    animalSectionTitles = [[animals allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    animalIndexTitles = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
     
+    
+    NSMutableArray *stockCat = [[NSMutableArray alloc] init];
+    stockCat = [db getAllStockCategories];
+    
+    
+    categories= [[NSMutableArray alloc] init];
+    NSMutableArray *categoriesID = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [stockCat count]; i++) {
+        if (i%2!=0) {
+            [categories addObject:[stockCat objectAtIndex:i]];
+        }else{
+            [categoriesID addObject:[stockCat objectAtIndex:i]];
+        }
+    }
+    
+    
+    for (int i = 0 ; i < [categoriesID count]; i++) {
+        
+        NSMutableArray *ItemsArray = [[NSMutableArray alloc] init];
+        ItemsArray = [db getAllStockWithCatID:[NSString stringWithFormat:@"%i",i]];
+        
+        if ([ItemsArray count]>0) {
+            NSDictionary *firstItemsArrayDict = [NSDictionary dictionaryWithObject:ItemsArray forKey:@"data"];
+            [dataArray addObject:firstItemsArrayDict];
+        }
+    }
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    // Return the number of sections.
-    return [animalSectionTitles count];
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [dataArray count];
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    NSString *sectionTitle = [animalSectionTitles objectAtIndex:section];
-    NSArray *sectionAnimals = [animals objectForKey:sectionTitle];
-    return [sectionAnimals count];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return [animalSectionTitles objectAtIndex:section];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    // Configure the cell...
-    NSString *sectionTitle = [animalSectionTitles objectAtIndex:indexPath.section];
-    NSArray *sectionAnimals = [animals objectForKey:sectionTitle];
-    NSString *animal = [sectionAnimals objectAtIndex:indexPath.row];
-    cell.textLabel.text = animal;
+    //Number of rows it should expect should be based on the section
+    NSDictionary *dictionary = [dataArray objectAtIndex:section];
+    NSArray *array = [dictionary objectForKey:@"data"];
+    return [array count];
+}
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+        return [categories objectAtIndex:section];
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    StockTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[StockTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    NSDictionary *dictionary = [dataArray objectAtIndex:indexPath.section];
+    NSArray *array = [dictionary objectForKey:@"data"];
+    NSString *cellValue = [array objectAtIndex:indexPath.row];
+    
+    NSArray * arrayT = [cellValue componentsSeparatedByString:@"--"];
+    
+    
+    
+    cell.lblTitle.text =(NSString *)[arrayT firstObject];
+    cell.lblPrice.text =[NSString stringWithFormat:@"R%@",(NSString *)[arrayT lastObject]];
+    
+    
     
     return cell;
 }
-
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    //  return animalSectionTitles;
-    return animalIndexTitles;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-{
-    return [animalSectionTitles indexOfObject:title];
-}
-
 
 
 

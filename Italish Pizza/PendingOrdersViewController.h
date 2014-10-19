@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *cvOrders;
 
+@property (strong, nonatomic) IBOutlet UILabel *lblNoCurrentOrders;
 
 @end

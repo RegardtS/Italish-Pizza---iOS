@@ -50,8 +50,8 @@
     tblUsers.dataSource = self;
     
     tblUsers.contentInset = UIEdgeInsetsMake(20.0f, 0.0f, 58.0f, 0.0f);
-
-
+    
+    
     db = [[DatabaseHelper alloc] init];
     
     
@@ -105,7 +105,7 @@
     
     cell.contentView.backgroundColor = [UIColor clearColor];
     cell.backgroundColor = [UIColor clearColor];
-
+    
     UIView *customColorView = [[UIView alloc] init];
     customColorView.backgroundColor = [UIColor colorWithRed:0/255.0
                                                       green:0/255.0
@@ -138,7 +138,6 @@
 
 
 - (IBAction)btnSave:(id)sender {
-    NSLog(@"saved pressed");
     if (![txtPassword.text isEqualToString:txtPasswordVerify.text]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Passwords don't match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -148,21 +147,24 @@
         [alert show];
     }else{
         NSIndexPath *selectedIndexPath = [tblUsers indexPathForSelectedRow];
-        NSMutableDictionary *staffDetails = [[NSMutableDictionary alloc] init];
-        
-        [staffDetails setObject:lblUsername.text  forKey:@"Staff_Name"];
-        [staffDetails setObject:txtPassword.text  forKey:@"Staff_Password"];
-        NSLog(@"1st");
-        [staffDetails setObject:[arAuthChoices objectAtIndex:[pkAuth selectedRowInComponent:0]]  forKey:@"Staff_Auth"];
-        NSLog(@"2nd");
-        
-        [staffDetails setObject:[arStaffID objectAtIndex:selectedIndexPath.row]  forKey:@"Staff_ID"];
-        NSLog(@"3rd");
-
-
         
         
-        [db updateStaff:staffDetails];
+        if([arStaffNames count]-1 == selectedIndexPath.row){
+            
+            [db addStaffWithUsername:lblUsername.text withPassword:txtPassword.text withAuthority:[pkAuth selectedRowInComponent:0]];
+            
+        }else{
+            
+            NSMutableDictionary *staffDetails = [[NSMutableDictionary alloc] init];
+            [staffDetails setObject:lblUsername.text  forKey:@"Staff_Name"];
+            [staffDetails setObject:txtPassword.text  forKey:@"Staff_Password"];
+            [staffDetails setObject:[arAuthChoices objectAtIndex:[pkAuth selectedRowInComponent:0]]  forKey:@"Staff_Auth"];
+            
+            [staffDetails setObject:[arStaffID objectAtIndex:selectedIndexPath.row]  forKey:@"Staff_ID"];
+            [db updateStaff:staffDetails];
+            
+        }
+        
         [self initalSetup];
         [tblUsers reloadData];
         

@@ -49,7 +49,6 @@ bool isShown = false;
 
 
 - (IBAction)btnUsernameTapped:(id)sender {
-    txtUsername.text = @"";
     usernames = [db getAllStaffUsernames];
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Username"
                                                              delegate:self
@@ -61,9 +60,17 @@ bool isShown = false;
     for (NSString *title in usernames) {
         [actionSheet addButtonWithTitle:title];
     }
+
     
     actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+    
+    
     [actionSheet showInView:self.view];
+
+    
+    
+    [actionSheet showInView:self.view];
+    
     iOS8BugKiller = YES;
 }
 
@@ -75,7 +82,8 @@ bool isShown = false;
 }
 
 -(void)actionSheetCancel:(UIActionSheet *)actionSheet{
-    iOS8BugKiller = YES;
+    NSLog(@"get here?");
+   // iOS8BugKiller = YES;
 }
 
 - (IBAction)btnPasswordTapped:(id)sender {
@@ -105,18 +113,19 @@ bool isShown = false;
     if ([txtPassword.text length]==0 && [txtUsername.text length]==0) {
         [self showErrorAlert];
     }else{
-        
-        NSString *username =[db loginWithUsername:txtUsername.text withPassword:txtPassword.text];
+        NSString *tempStr =[db loginWithUsername:txtUsername.text withPassword:txtPassword.text];
+        NSArray * arrayT = [tempStr componentsSeparatedByString:@"--"];
+        NSString *username = [arrayT firstObject];
         if (username.length == 0) {
             [self showErrorAlert];
         }else{
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setBool:YES forKey:@"LoggedIn"];
             [defaults setValue:username forKey:@"Username"];
+            [defaults setValue:[arrayT lastObject] forKey:@"ID"];
+            [defaults setValue:[arrayT objectAtIndex:1] forKey:@"Auth"];
             [defaults synchronize];
-            
             [self cleanup];
-            
             [self performSegueWithIdentifier:@"tabbarSegue" sender:self];
         }
     }

@@ -20,12 +20,14 @@
 
 @synthesize tblView;
 
-@synthesize currentPopoverSegue,pvc;
+@synthesize currentPopoverSegue,pvc,fromBooking;
 
 
 NSMutableArray *customerAllDetails;
 NSMutableArray *customerNames;
 NSMutableArray *customerContact;
+NSMutableArray *customerID;
+
 
 
 DatabaseHelper *db;
@@ -39,19 +41,14 @@ DatabaseHelper *db;
     customerNames = [[NSMutableArray alloc] init];
     customerContact = [[NSMutableArray alloc] init];
     customerAllDetails = [[NSMutableArray alloc] init];
+    customerID = [[NSMutableArray alloc] init];
+    
     
     [self setupTableView];
-    
-
-    
-    
     
     tblView.delegate = self;
     tblView.dataSource = self;
     
-    
-    
-
     
     VBFPopFlatButton *btnCreate = [[VBFPopFlatButton alloc] initWithFrame:CGRectMake(1024-100, 80-48/2, 48 , 48) buttonType:buttonAddType buttonStyle:buttonRoundedStyle animateToInitialState:YES];
     
@@ -64,29 +61,32 @@ DatabaseHelper *db;
                                action:@selector(createPressed)
                      forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnCreate];
-    
-    
-    
-
-    
-
-   
 }
 
 -(void)setupTableView{
     [customerAllDetails removeAllObjects];
     [customerNames removeAllObjects];
     [customerContact removeAllObjects];
+    [customerID removeAllObjects];
+    
     
     customerAllDetails = [db getAllCustomers];
     
-    for (int i = 0; i < [customerAllDetails count]; i++) {
-        if (i%2==0) {
-            [customerNames addObject:[customerAllDetails objectAtIndex:i]];
-        }else{
-            [customerContact addObject:[customerAllDetails objectAtIndex:i]];
-        }
+
+    
+    
+    for (int i = 0; i < [customerAllDetails count]; i+=3) {
+        [customerNames addObject:[customerAllDetails objectAtIndex:i]];
     }
+    for (int i = 1; i < [customerAllDetails count]; i+=3) {
+        [customerContact addObject:[customerAllDetails objectAtIndex:i]];
+    }
+    for (int i = 2; i < [customerAllDetails count]; i+=3) {
+        [customerID addObject:[customerAllDetails objectAtIndex:i]];
+    }
+    
+    
+    
     
     [tblView reloadData];
     
@@ -127,6 +127,19 @@ DatabaseHelper *db;
     
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:[customerID objectAtIndex:indexPath.row] forKey:@"TempCustID"];
+    [defaults setValue:[customerNames objectAtIndex:indexPath.row] forKey:@"TempCustName"];
+    [defaults setValue:[customerContact objectAtIndex:indexPath.row] forKey:@"TempCustContact"];
+    [defaults synchronize];
+    
+    if (fromBooking) {
+        fromBooking = NO;
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 
 // PopViewControllerDelegate callback function
 - (void)dismissWithSaveWithUsername:(NSString*)username withSurname:(NSString *)surname withContactNum:(NSString *)contactNum withEmail:(NSString *)email{

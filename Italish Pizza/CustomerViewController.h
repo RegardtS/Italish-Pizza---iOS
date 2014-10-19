@@ -21,6 +21,10 @@
 
 
 
+@property (nonatomic) BOOL fromBooking;
+
+
+
 
 
 @end

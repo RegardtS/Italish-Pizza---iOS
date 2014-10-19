@@ -10,4 +10,6 @@
 
 @interface TabViewController : UITabBarController
 
+@property (strong, nonatomic) IBOutlet UITabBar *tbBar;
+
 @end

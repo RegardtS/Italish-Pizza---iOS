@@ -16,6 +16,7 @@
 
 //LOGIN
 -(NSString *)loginWithUsername:(NSString *)username withPassword:(NSString *)password;
+-(void)changePassWithUserID:(NSInteger)ID withPassword:(NSString *)password;
 
 //STAFF
 -(void)addStaffWithUsername:(NSString *)username withPassword:(NSString *)password withAuthority:(NSInteger)auth;
@@ -26,14 +27,32 @@
 //CUSTOMERS
 -(void)addCustomerWithName:(NSString*)name withSurname:(NSString *)surname withContactNum:(NSString *)contactNum withEmail:(NSString *)email;
 -(NSMutableArray *)getAllCustomers;
+-(NSString *)getCustomerInfoWithID:(NSString *)ID;
 
 //STOCKCATEGORIES
 -(void)addStockCategory:(NSString *)categoryName;
 -(NSMutableArray *)getAllStockCategories;
+-(NSMutableArray *)getAllStockCatNames;
+
 
 //STOCK
--(void)addStockItemWithName:(NSString *)name withDescription:(NSString *)description withPrice:(NSString *)price withAmount:(NSString *)amount withCatID:(NSString *)ID;
+-(void)addStockItemWithName:(NSString *)name withDescription:(NSString *)description withPrice:(NSString *)price withCatID:(NSString *)ID;
+-(NSMutableArray *)getAllStockWithCatID:(NSString *)ID;
+-(NSMutableArray *)getAllStockIDWithCatID:(NSString *)ID;
 
+
+//BOOKING
+-(void)addBookingWithCustomerID:(NSInteger)custID withTime:(NSString *)time withDate:(NSString *)date withSize:(NSInteger)size;
+-(NSMutableArray *)getAllBookings;
+-(void)deleteBookingWithID:(NSString *)ID;
+
+//BILL
+-(void)createBillWithTableNum:(NSInteger)num withDate:(NSString *)date withStaffID:(NSInteger)ID;
+-(NSInteger)getBillID;
+
+
+//BILL ITEMS
+-(void)addBillItemsWithBillID:(NSInteger)BillID withStockID:(NSInteger)StockID withQuantity:(NSInteger)quantity;
 
 
 

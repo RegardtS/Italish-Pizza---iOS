@@ -8,6 +8,7 @@
 
 #import "PendingOrdersViewController.h"
 #import "PendingOrderCollectionViewCell.h"
+#import "VBFPopFlatButton.h"
 
 @interface PendingOrdersViewController ()
 
@@ -27,7 +28,16 @@ NSArray *dataArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self checkIfAuthorized];
+    [self creatButton];
 
+    
+    
+    
+
+    
+    
+    
     cvOrders.delegate = self;
     cvOrders.dataSource = self;
         
@@ -40,6 +50,41 @@ NSArray *dataArray;
     }
     dataArray = [[NSArray alloc] initWithObjects:firstSection, secondSection, nil];
     
+    
+    
+    
+    
+    
+}
+
+-(void)checkIfAuthorized{
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *auth = [defaults objectForKey:@"Auth"];
+    if (![auth isEqualToString:@"2"]) {
+        NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.tabBarController.viewControllers];
+        [controllers removeObjectAtIndex:[controllers count]-1];
+        [self.tabBarController setViewControllers:controllers animated:YES];
+    }
+}
+
+-(void)creatButton{
+    VBFPopFlatButton *btnCreate = [[VBFPopFlatButton alloc] initWithFrame:CGRectMake(1024-100, 79, 48 , 48) buttonType:buttonAddType buttonStyle:buttonRoundedStyle animateToInitialState:YES];
+    
+    
+    btnCreate.roundBackgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1];
+    btnCreate.lineThickness = 2;
+    btnCreate.tintColor = [UIColor colorWithRed:0.20392156862745098 green:0.596078431372549 blue:0.8588235294117647 alpha:1];
+    
+    [btnCreate addTarget:self
+                  action:@selector(createPressed)
+        forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnCreate];
+}
+
+-(void)createPressed{
+    [self performSegueWithIdentifier:@"orderSegue" sender:self];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -54,10 +99,6 @@ NSArray *dataArray;
     static NSString *identifier = @"Cell";
     PendingOrderCollectionViewCell *cell = (PendingOrderCollectionViewCell *)[cvOrders dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
 
-
-//    edit
-//    pay
-//    delete
     
     UITapGestureRecognizer *tapPay = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [cell.lblPay addGestureRecognizer:tapPay];

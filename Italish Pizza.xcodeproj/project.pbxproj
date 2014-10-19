@@ -12,6 +12,20 @@
 		CE0B1F4119ED83F700190DDE /* ManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0B1F4019ED83F700190DDE /* ManagementViewController.m */; };
 		CE0B1F4719ED9BB800190DDE /* PendingOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0B1F4619ED9BB800190DDE /* PendingOrdersViewController.m */; };
 		CE0B1F4A19EDA06600190DDE /* PendingOrderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0B1F4919EDA06600190DDE /* PendingOrderCollectionViewCell.m */; };
+		CE249CC119F251450084861B /* CreatBookingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CC019F251450084861B /* CreatBookingViewController.m */; };
+		CE249CD919F2A6090084861B /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CC419F2A6090084861B /* PNBar.m */; };
+		CE249CDA19F2A6090084861B /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CC619F2A6090084861B /* PNBarChart.m */; };
+		CE249CDB19F2A6090084861B /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CCA19F2A6090084861B /* PNChartLabel.m */; };
+		CE249CDC19F2A6090084861B /* PNCircleChart.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CCC19F2A6090084861B /* PNCircleChart.m */; };
+		CE249CDD19F2A6090084861B /* PNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CCE19F2A6090084861B /* PNColor.m */; };
+		CE249CDE19F2A6090084861B /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CD019F2A6090084861B /* PNLineChart.m */; };
+		CE249CDF19F2A6090084861B /* PNLineChartData.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CD219F2A6090084861B /* PNLineChartData.m */; };
+		CE249CE019F2A6090084861B /* PNLineChartDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CD419F2A6090084861B /* PNLineChartDataItem.m */; };
+		CE249CE119F2A6090084861B /* PNPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CD619F2A6090084861B /* PNPieChart.m */; };
+		CE249CE219F2A6090084861B /* PNPieChartDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CD819F2A6090084861B /* PNPieChartDataItem.m */; };
+		CE249CE519F2A6300084861B /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CE419F2A6300084861B /* ReportViewController.m */; };
+		CE249CE819F2A72F0084861B /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CE719F2A72F0084861B /* UICountingLabel.m */; };
+		CE249CED19F375890084861B /* TableSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CEC19F375890084861B /* TableSelectViewController.m */; };
 		CE7FF9FB19EE8351004E11E6 /* CustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FF9FA19EE8351004E11E6 /* CustomerViewController.m */; };
 		CE7FF9FD19EE8435004E11E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7FF9FC19EE8435004E11E6 /* QuartzCore.framework */; };
 		CE7FF9FF19EE9090004E11E6 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7FF9FE19EE9090004E11E6 /* plus.png */; };
@@ -39,6 +53,7 @@
 		CE7FFAA019EED5DC004E11E6 /* CustomerFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FFA9F19EED5DC004E11E6 /* CustomerFormViewController.m */; };
 		CE7FFAA319EF1B4A004E11E6 /* StockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FFAA219EF1B4A004E11E6 /* StockViewController.m */; };
 		CE7FFAA719EF1CC1004E11E6 /* StockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FFAA619EF1CC1004E11E6 /* StockTableViewCell.m */; };
+		CE7FFAAA19F01AEB004E11E6 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FFAA919F01AEB004E11E6 /* ProfileViewController.m */; };
 		CE8D1FF419B478D10087FC6E /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FF319B478D10087FC6E /* TabViewController.m */; };
 		CE8D1FF519B478D10087FC6E /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FF319B478D10087FC6E /* TabViewController.m */; };
 		CE8D1FF819B479A40087FC6E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FF719B479A40087FC6E /* LoginViewController.m */; };
@@ -64,6 +79,10 @@
 		CEBA239F19B46D6F00436F01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBA239D19B46D6F00436F01 /* InfoPlist.strings */; };
 		CEBA23A119B46D6F00436F01 /* Italish_PizzaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA23A019B46D6F00436F01 /* Italish_PizzaTests.m */; };
 		CEC12E7A19C6DAA000358027 /* 20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEC12E7919C6DAA000358027 /* 20.jpg */; };
+		CECC7F2019F0F03000B4267F /* CreateOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC7F1F19F0F03000B4267F /* CreateOrderViewController.m */; };
+		CECC7F2319F0F28300B4267F /* ItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC7F2219F0F28300B4267F /* ItemCollectionViewCell.m */; };
+		CECC7F2619F129B000B4267F /* ConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC7F2519F129B000B4267F /* ConfirmViewController.m */; };
+		CECC7F2919F12CB700B4267F /* ConfirmOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC7F2819F12CB700B4267F /* ConfirmOrderTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +104,36 @@
 		CE0B1F4619ED9BB800190DDE /* PendingOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingOrdersViewController.m; sourceTree = "<group>"; };
 		CE0B1F4819EDA06600190DDE /* PendingOrderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingOrderCollectionViewCell.h; sourceTree = "<group>"; };
 		CE0B1F4919EDA06600190DDE /* PendingOrderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingOrderCollectionViewCell.m; sourceTree = "<group>"; };
+		CE249CBF19F251450084861B /* CreatBookingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatBookingViewController.h; sourceTree = "<group>"; };
+		CE249CC019F251450084861B /* CreatBookingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatBookingViewController.m; sourceTree = "<group>"; };
+		CE249CC319F2A6090084861B /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
+		CE249CC419F2A6090084861B /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
+		CE249CC519F2A6090084861B /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
+		CE249CC619F2A6090084861B /* PNBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBarChart.m; sourceTree = "<group>"; };
+		CE249CC719F2A6090084861B /* PNChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChart.h; sourceTree = "<group>"; };
+		CE249CC819F2A6090084861B /* PNChartDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartDelegate.h; sourceTree = "<group>"; };
+		CE249CC919F2A6090084861B /* PNChartLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartLabel.h; sourceTree = "<group>"; };
+		CE249CCA19F2A6090084861B /* PNChartLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNChartLabel.m; sourceTree = "<group>"; };
+		CE249CCB19F2A6090084861B /* PNCircleChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNCircleChart.h; sourceTree = "<group>"; };
+		CE249CCC19F2A6090084861B /* PNCircleChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNCircleChart.m; sourceTree = "<group>"; };
+		CE249CCD19F2A6090084861B /* PNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNColor.h; sourceTree = "<group>"; };
+		CE249CCE19F2A6090084861B /* PNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNColor.m; sourceTree = "<group>"; };
+		CE249CCF19F2A6090084861B /* PNLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNLineChart.h; sourceTree = "<group>"; };
+		CE249CD019F2A6090084861B /* PNLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChart.m; sourceTree = "<group>"; };
+		CE249CD119F2A6090084861B /* PNLineChartData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNLineChartData.h; sourceTree = "<group>"; };
+		CE249CD219F2A6090084861B /* PNLineChartData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChartData.m; sourceTree = "<group>"; };
+		CE249CD319F2A6090084861B /* PNLineChartDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNLineChartDataItem.h; sourceTree = "<group>"; };
+		CE249CD419F2A6090084861B /* PNLineChartDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChartDataItem.m; sourceTree = "<group>"; };
+		CE249CD519F2A6090084861B /* PNPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNPieChart.h; sourceTree = "<group>"; };
+		CE249CD619F2A6090084861B /* PNPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNPieChart.m; sourceTree = "<group>"; };
+		CE249CD719F2A6090084861B /* PNPieChartDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNPieChartDataItem.h; sourceTree = "<group>"; };
+		CE249CD819F2A6090084861B /* PNPieChartDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNPieChartDataItem.m; sourceTree = "<group>"; };
+		CE249CE319F2A6300084861B /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		CE249CE419F2A6300084861B /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
+		CE249CE619F2A72F0084861B /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
+		CE249CE719F2A72F0084861B /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
+		CE249CEB19F375890084861B /* TableSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableSelectViewController.h; sourceTree = "<group>"; };
+		CE249CEC19F375890084861B /* TableSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableSelectViewController.m; sourceTree = "<group>"; };
 		CE7FF9F919EE8351004E11E6 /* CustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerViewController.h; sourceTree = "<group>"; };
 		CE7FF9FA19EE8351004E11E6 /* CustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerViewController.m; sourceTree = "<group>"; };
 		CE7FF9FC19EE8435004E11E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -151,6 +200,8 @@
 		CE7FFAA219EF1B4A004E11E6 /* StockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockViewController.m; sourceTree = "<group>"; };
 		CE7FFAA519EF1CC1004E11E6 /* StockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockTableViewCell.h; sourceTree = "<group>"; };
 		CE7FFAA619EF1CC1004E11E6 /* StockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockTableViewCell.m; sourceTree = "<group>"; };
+		CE7FFAA819F01AEB004E11E6 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		CE7FFAA919F01AEB004E11E6 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		CE8D1FF219B478D10087FC6E /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		CE8D1FF319B478D10087FC6E /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		CE8D1FF619B479A40087FC6E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -182,6 +233,14 @@
 		CEBA239E19B46D6F00436F01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CEBA23A019B46D6F00436F01 /* Italish_PizzaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Italish_PizzaTests.m; sourceTree = "<group>"; };
 		CEC12E7919C6DAA000358027 /* 20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20.jpg; sourceTree = "<group>"; };
+		CECC7F1E19F0F03000B4267F /* CreateOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateOrderViewController.h; sourceTree = "<group>"; };
+		CECC7F1F19F0F03000B4267F /* CreateOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateOrderViewController.m; sourceTree = "<group>"; };
+		CECC7F2119F0F28300B4267F /* ItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCollectionViewCell.h; sourceTree = "<group>"; };
+		CECC7F2219F0F28300B4267F /* ItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCollectionViewCell.m; sourceTree = "<group>"; };
+		CECC7F2419F129B000B4267F /* ConfirmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmViewController.h; sourceTree = "<group>"; };
+		CECC7F2519F129B000B4267F /* ConfirmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmViewController.m; sourceTree = "<group>"; };
+		CECC7F2719F12CB700B4267F /* ConfirmOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderTableViewCell.h; sourceTree = "<group>"; };
+		CECC7F2819F12CB700B4267F /* ConfirmOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,10 +248,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBA237519B46D6F00436F01 /* CoreGraphics.framework in Frameworks */,
 				CE7FFA9B19EE97ED004E11E6 /* libstdc++.dylib in Frameworks */,
 				CE7FF9FD19EE8435004E11E6 /* QuartzCore.framework in Frameworks */,
 				CE8D1FFF19B4A67A0087FC6E /* libsqlite3.dylib in Frameworks */,
-				CEBA237519B46D6F00436F01 /* CoreGraphics.framework in Frameworks */,
 				CEBA237719B46D6F00436F01 /* UIKit.framework in Frameworks */,
 				CEBA237319B46D6F00436F01 /* Foundation.framework in Frameworks */,
 			);
@@ -211,6 +270,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE249CC219F2A6090084861B /* PNChart */ = {
+			isa = PBXGroup;
+			children = (
+				CE249CC319F2A6090084861B /* PNBar.h */,
+				CE249CC419F2A6090084861B /* PNBar.m */,
+				CE249CC519F2A6090084861B /* PNBarChart.h */,
+				CE249CC619F2A6090084861B /* PNBarChart.m */,
+				CE249CC719F2A6090084861B /* PNChart.h */,
+				CE249CC819F2A6090084861B /* PNChartDelegate.h */,
+				CE249CC919F2A6090084861B /* PNChartLabel.h */,
+				CE249CCA19F2A6090084861B /* PNChartLabel.m */,
+				CE249CCB19F2A6090084861B /* PNCircleChart.h */,
+				CE249CCC19F2A6090084861B /* PNCircleChart.m */,
+				CE249CCD19F2A6090084861B /* PNColor.h */,
+				CE249CCE19F2A6090084861B /* PNColor.m */,
+				CE249CCF19F2A6090084861B /* PNLineChart.h */,
+				CE249CD019F2A6090084861B /* PNLineChart.m */,
+				CE249CD119F2A6090084861B /* PNLineChartData.h */,
+				CE249CD219F2A6090084861B /* PNLineChartData.m */,
+				CE249CD319F2A6090084861B /* PNLineChartDataItem.h */,
+				CE249CD419F2A6090084861B /* PNLineChartDataItem.m */,
+				CE249CD519F2A6090084861B /* PNPieChart.h */,
+				CE249CD619F2A6090084861B /* PNPieChart.m */,
+				CE249CD719F2A6090084861B /* PNPieChartDataItem.h */,
+				CE249CD819F2A6090084861B /* PNPieChartDataItem.m */,
+			);
+			path = PNChart;
+			sourceTree = "<group>";
+		};
 		CE7FFA0019EE955F004E11E6 /* VBFPopFlatButtonClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +385,10 @@
 				CE8D1FFB19B484550087FC6E /* DatabaseHelper.m */,
 				CE7FFAA519EF1CC1004E11E6 /* StockTableViewCell.h */,
 				CE7FFAA619EF1CC1004E11E6 /* StockTableViewCell.m */,
+				CECC7F2119F0F28300B4267F /* ItemCollectionViewCell.h */,
+				CECC7F2219F0F28300B4267F /* ItemCollectionViewCell.m */,
+				CECC7F2719F12CB700B4267F /* ConfirmOrderTableViewCell.h */,
+				CECC7F2819F12CB700B4267F /* ConfirmOrderTableViewCell.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -316,12 +408,24 @@
 				CE0B1F4019ED83F700190DDE /* ManagementViewController.m */,
 				CE0B1F4519ED9BB800190DDE /* PendingOrdersViewController.h */,
 				CE0B1F4619ED9BB800190DDE /* PendingOrdersViewController.m */,
-				CE7FF9F919EE8351004E11E6 /* CustomerViewController.h */,
-				CE7FF9FA19EE8351004E11E6 /* CustomerViewController.m */,
 				CE7FFA9E19EED5DC004E11E6 /* CustomerFormViewController.h */,
 				CE7FFA9F19EED5DC004E11E6 /* CustomerFormViewController.m */,
 				CE7FFAA119EF1B4A004E11E6 /* StockViewController.h */,
 				CE7FFAA219EF1B4A004E11E6 /* StockViewController.m */,
+				CE7FFAA819F01AEB004E11E6 /* ProfileViewController.h */,
+				CE7FFAA919F01AEB004E11E6 /* ProfileViewController.m */,
+				CECC7F1E19F0F03000B4267F /* CreateOrderViewController.h */,
+				CECC7F1F19F0F03000B4267F /* CreateOrderViewController.m */,
+				CECC7F2419F129B000B4267F /* ConfirmViewController.h */,
+				CECC7F2519F129B000B4267F /* ConfirmViewController.m */,
+				CE249CBF19F251450084861B /* CreatBookingViewController.h */,
+				CE249CC019F251450084861B /* CreatBookingViewController.m */,
+				CE7FF9F919EE8351004E11E6 /* CustomerViewController.h */,
+				CE7FF9FA19EE8351004E11E6 /* CustomerViewController.m */,
+				CE249CE319F2A6300084861B /* ReportViewController.h */,
+				CE249CE419F2A6300084861B /* ReportViewController.m */,
+				CE249CEB19F375890084861B /* TableSelectViewController.h */,
+				CE249CEC19F375890084861B /* TableSelectViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -329,6 +433,9 @@
 		CE8D200319B685230087FC6E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				CE249CE619F2A72F0084861B /* UICountingLabel.h */,
+				CE249CE719F2A72F0084861B /* UICountingLabel.m */,
+				CE249CC219F2A6090084861B /* PNChart */,
 				CE7FFA5319EE97B9004E11E6 /* pop */,
 				CE7FFA0019EE955F004E11E6 /* VBFPopFlatButtonClasses */,
 			);
@@ -529,26 +636,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE249CDC19F2A6090084861B /* PNCircleChart.m in Sources */,
 				CE7FFA9419EE97B9004E11E6 /* POPLayerExtras.mm in Sources */,
 				CE7FFA9719EE97B9004E11E6 /* POPSpringAnimation.mm in Sources */,
 				CE7FFAA319EF1B4A004E11E6 /* StockViewController.m in Sources */,
 				CE7FFA9819EE97B9004E11E6 /* POPVector.mm in Sources */,
+				CE249CE819F2A72F0084861B /* UICountingLabel.m in Sources */,
+				CE7FFAAA19F01AEB004E11E6 /* ProfileViewController.m in Sources */,
+				CECC7F2619F129B000B4267F /* ConfirmViewController.m in Sources */,
 				CE8D1FFC19B484550087FC6E /* DatabaseHelper.m in Sources */,
 				CE0B1F4119ED83F700190DDE /* ManagementViewController.m in Sources */,
 				CE7FFA8F19EE97B9004E11E6 /* POPBasicAnimation.mm in Sources */,
 				CE7FFA0619EE955F004E11E6 /* VBFPopFlatButton.m in Sources */,
 				CE8D1FF419B478D10087FC6E /* TabViewController.m in Sources */,
+				CE249CD919F2A6090084861B /* PNBar.m in Sources */,
+				CE249CDB19F2A6090084861B /* PNChartLabel.m in Sources */,
 				CE7FFA9319EE97B9004E11E6 /* POPGeometry.mm in Sources */,
 				CEBA238319B46D6F00436F01 /* AppDelegate.m in Sources */,
+				CE249CDF19F2A6090084861B /* PNLineChartData.m in Sources */,
+				CE249CE019F2A6090084861B /* PNLineChartDataItem.m in Sources */,
+				CE249CDE19F2A6090084861B /* PNLineChart.m in Sources */,
 				CE9B953219BCF5A10076293E /* BookingViewController.m in Sources */,
+				CECC7F2019F0F03000B4267F /* CreateOrderViewController.m in Sources */,
 				CE7FFA8919EE97B9004E11E6 /* POPAnimation.mm in Sources */,
+				CE249CDD19F2A6090084861B /* PNColor.m in Sources */,
 				CE7FFA0519EE955F004E11E6 /* VBFDoubleSegment.m in Sources */,
 				CE7FFA9219EE97B9004E11E6 /* POPDecayAnimation.mm in Sources */,
 				CE7FFA8E19EE97B9004E11E6 /* POPAnimator.mm in Sources */,
 				CE7FF9FB19EE8351004E11E6 /* CustomerViewController.m in Sources */,
 				CE7FFA8819EE97B9004E11E6 /* POPAnimatableProperty.mm in Sources */,
+				CE249CE219F2A6090084861B /* PNPieChartDataItem.m in Sources */,
+				CE249CDA19F2A6090084861B /* PNBarChart.m in Sources */,
 				CE8D200219B66E5C0087FC6E /* UserViewController.m in Sources */,
 				CE0B1F4719ED9BB800190DDE /* PendingOrdersViewController.m in Sources */,
+				CE249CE519F2A6300084861B /* ReportViewController.m in Sources */,
 				CE7FFA8D19EE97B9004E11E6 /* POPAnimationTracer.mm in Sources */,
 				CE7FFA9019EE97B9004E11E6 /* POPCGUtils.mm in Sources */,
 				CE7FFA9619EE97B9004E11E6 /* POPPropertyAnimation.mm in Sources */,
@@ -556,9 +677,14 @@
 				CE7FFA9519EE97B9004E11E6 /* POPMath.mm in Sources */,
 				CEBA237F19B46D6F00436F01 /* main.m in Sources */,
 				CE7FFAA719EF1CC1004E11E6 /* StockTableViewCell.m in Sources */,
+				CE249CC119F251450084861B /* CreatBookingViewController.m in Sources */,
+				CECC7F2919F12CB700B4267F /* ConfirmOrderTableViewCell.m in Sources */,
+				CE249CED19F375890084861B /* TableSelectViewController.m in Sources */,
 				CE7FFA8A19EE97B9004E11E6 /* POPAnimationEvent.mm in Sources */,
 				CE0B1F4A19EDA06600190DDE /* PendingOrderCollectionViewCell.m in Sources */,
 				CE7FFA8C19EE97B9004E11E6 /* POPAnimationRuntime.mm in Sources */,
+				CE249CE119F2A6090084861B /* PNPieChart.m in Sources */,
+				CECC7F2319F0F28300B4267F /* ItemCollectionViewCell.m in Sources */,
 				CE7FFAA019EED5DC004E11E6 /* CustomerFormViewController.m in Sources */,
 				CE8D1FF819B479A40087FC6E /* LoginViewController.m in Sources */,
 				CE7FFA8B19EE97B9004E11E6 /* POPAnimationExtras.mm in Sources */,
