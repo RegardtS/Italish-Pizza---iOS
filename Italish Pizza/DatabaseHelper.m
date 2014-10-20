@@ -67,6 +67,9 @@ NSString *KEY_BILL_TABLENUMBER = @"tablenumber";
 NSString *KEY_BILL_DATEISSUED = @"dateissued";
 NSString *KEY_BILL_STAFFID = @"staffID";
 NSString *KEY_BILL_TOTALAMOUNT = @"amount";
+NSString *KEY_BILL_CLOSED = @"closed";
+
+
 
 //BillItems Table Column names
 NSString *KEY_BILLITEMS_BILLID = @"billID";
@@ -122,12 +125,19 @@ NSString *CREATE_TABLE_BILLITEMS;
                           KEY_STOCK_PRICE,
                           KEY_STOCK_CATEGORYID];
     
-    CREATE_TABLE_BILL =[NSString stringWithFormat:@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT, %@ INT,%@ TEXT, %@ INT)",
+    CREATE_TABLE_BILL =[NSString stringWithFormat:@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT, %@ INT,%@ TEXT, %@ INT, %@ TEXT, %@ INT)",
                         TABLE_BILL,
                         KEY_BILL_ID,
                         KEY_BILL_TABLENUMBER,
                         KEY_BILL_DATEISSUED,
-                        KEY_BILL_STAFFID];
+                        KEY_BILL_STAFFID,
+                        KEY_BILL_TOTALAMOUNT,
+                        KEY_BILL_CLOSED
+                        ];
+    
+
+    
+    
     
     CREATE_TABLE_BILLITEMS =[NSString stringWithFormat:@"CREATE TABLE %@ (%@ INT, %@ INT,%@ INT)",
                         TABLE_BILLITEMS,
@@ -230,7 +240,18 @@ NSString *CREATE_TABLE_BILLITEMS;
     sqlite3_stmt *statement = nil;
     const char *dbpath = [dbPath UTF8String];
     if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK){
-        NSString *querySQL = [NSString stringWithFormat: @"SELECT %@,%@,%@ FROM %@ WHERE %@=\"%@\" AND %@=\"%@\"",KEY_STAFF_NAME,KEY_STAFF_AUTHORITY,KEY_STAFF_ID,TABLE_STAFF,KEY_STAFF_NAME,username,KEY_STAFF_PASSWORD,password];
+        
+        // SELECT COUNT(*) from tableNAME
+        
+        
+        NSString *querySQL = [NSString stringWithFormat: @"SELECT %@,%@,%@ FROM %@ WHERE %@=\"%@\" AND %@=\"%@\"",
+                              KEY_STAFF_NAME,
+                              KEY_STAFF_AUTHORITY,
+                              KEY_STAFF_ID,
+                              TABLE_STAFF,
+                              KEY_STAFF_NAME,
+                              username,
+                              KEY_STAFF_PASSWORD,password];
         const char *query_stmt = [querySQL UTF8String];
         if (sqlite3_prepare_v2(ItalishDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
             if (sqlite3_step(statement) == SQLITE_ROW){
@@ -242,6 +263,9 @@ NSString *CREATE_TABLE_BILLITEMS;
     }
     return returnedStr;
 }
+
+
+
 -(void)changePassWithUserID:(NSInteger)ID withPassword:(NSString *)password{
     NSString *docsDir;
     NSArray *dirPaths;
@@ -735,11 +759,12 @@ NSString *CREATE_TABLE_BILLITEMS;
     const char *dbpath = [dbPath UTF8String];
     if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
         const char *insert_stmt;
-        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@) VALUES(%i,\"%@\",%i) ",
+        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@,%@) VALUES(%i,\"%@\",%i, 0) ",
                                      TABLE_BILL,
                                      KEY_BILL_TABLENUMBER,
                                      KEY_BILL_DATEISSUED,
                                      KEY_BILL_STAFFID,
+                                     KEY_BILL_CLOSED,
                                      num,
                                      date,
                                      ID
@@ -751,22 +776,16 @@ NSString *CREATE_TABLE_BILLITEMS;
     sqlite3_finalize(statement);
     sqlite3_close(ItalishDB);
 }
-
 -(NSInteger)getBillID{
     NSString *tempStr = @"";
-    
     NSString *docsDir;
     NSArray *dirPaths;
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = dirPaths[0];
     dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
-    
     const char *dbpath = [dbPath UTF8String];
     sqlite3_stmt    *statement;
     if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK){
-        
-           //    SELECT * FROM tablename ORDER BY column DESC LIMIT 1;
-        
         NSString *querySQL = [NSString stringWithFormat:@"SELECT %@ FROM %@ ORDER BY %@ DESC LIMIT 1",KEY_BILL_ID,TABLE_BILL,KEY_BILL_ID];
         const char *query_stmt = [querySQL UTF8String];
         if (sqlite3_prepare_v2(ItalishDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
@@ -779,9 +798,123 @@ NSString *CREATE_TABLE_BILLITEMS;
     }
     return [tempStr integerValue];
 }
+-(NSMutableArray *)getAllOpenBills{
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
+    const char *dbpath = [dbPath UTF8String];
+    sqlite3_stmt    *statement;
+    if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK){
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT %@,%@,%@,%@ FROM %@ WHERE %@ = 0 ORDER BY %@ DESC",
+                              KEY_BILL_ID,
+                              KEY_BILL_TABLENUMBER,
+                              KEY_BILL_DATEISSUED,
+                              KEY_BILL_STAFFID,
+                              TABLE_BILL,
+                              KEY_BILL_CLOSED,
+                              KEY_BILL_ID
+                              ];
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(ItalishDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
+            while (sqlite3_step(statement)== SQLITE_ROW) {
+                NSMutableArray *loopArray = [[NSMutableArray alloc] init];
+                
+                
+                [loopArray addObject:[[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 0)]];
+                [loopArray addObject:[[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 1)]];
+                [loopArray addObject:[[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 2)]];
+                [loopArray addObject:[[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 3)]];
+                
+
+                [tempArray addObject:loopArray];
+            }
+            sqlite3_finalize(statement);
+        }
+        sqlite3_close(ItalishDB);
+    }
+    return tempArray;
+}
+-(void)closeBillWithID:(NSInteger)ID amount:(NSString *)amount{
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
+    sqlite3_stmt *statement = nil;
+    const char *dbpath = [dbPath UTF8String];
+    if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
+        const char *update_stmt;
+        
+        NSString *updateStatement = [NSString stringWithFormat:@"UPDATE %@ SET %@ = 1, %@ = \"%@\" WHERE %@=%i",
+                                     TABLE_BILL,
+                                     KEY_BILL_CLOSED,
+                                     KEY_BILL_TOTALAMOUNT,
+                                     amount,
+                                     KEY_BILL_ID,
+                                     ID];
+        update_stmt = [updateStatement UTF8String];
+        sqlite3_prepare_v2(ItalishDB, update_stmt, -1, &statement, NULL);
+        sqlite3_step(statement);
+    }
+    sqlite3_finalize(statement);
+    sqlite3_close(ItalishDB);
+}
+-(NSInteger)getAllTakeAwayBills{
+    NSInteger counter;
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
+    const char *dbpath = [dbPath UTF8String];
+    sqlite3_stmt    *statement;
+    if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK){
+        NSString *querySQL = [NSString stringWithFormat: @"SELECT COUNT(*) FROM %@ WHERE %@=0",
+                              TABLE_BILL,
+                              KEY_BILL_TABLENUMBER];
+        
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(ItalishDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
+            if (sqlite3_step(statement) == SQLITE_ROW){
+                counter = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)] integerValue];
+            }
+            sqlite3_finalize(statement);
+        }
+        sqlite3_close(ItalishDB);
+    }
+    return counter;
+}
+-(NSInteger)getAllSitDownBills{
+    NSInteger counter;
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
+    const char *dbpath = [dbPath UTF8String];
+    sqlite3_stmt    *statement;
+    if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK){
+        NSString *querySQL = [NSString stringWithFormat: @"SELECT COUNT(*) FROM %@ WHERE %@!=0",
+                              TABLE_BILL,
+                              KEY_BILL_TABLENUMBER];
+        
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(ItalishDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
+            if (sqlite3_step(statement) == SQLITE_ROW){
+                counter = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)] integerValue];
+            }
+            sqlite3_finalize(statement);
+        }
+        sqlite3_close(ItalishDB);
+    }
+    return counter;
+}
 
 
-
+//BILL ITEMS
 -(void)addBillItemsWithBillID:(NSInteger)BillID withStockID:(NSInteger)StockID withQuantity:(NSInteger)quantity{
     NSString *docsDir;
     NSArray *dirPaths;
@@ -808,7 +941,54 @@ NSString *CREATE_TABLE_BILLITEMS;
     sqlite3_finalize(statement);
     sqlite3_close(ItalishDB);
 }
-
+-(void)removeAllBillItemsWithBillID:(NSInteger)BillID{
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
+    sqlite3_stmt *statement = nil;
+    const char *dbpath = [dbPath UTF8String];
+    if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
+        const char *insert_stmt;
+        NSString *insertStatement = [NSString stringWithFormat:@"DELETE FROM %@ WHERE %@ = %i",
+                                     TABLE_BILLITEMS,
+                                     KEY_BILLITEMS_BILLID,
+                                     BillID
+                                     ];
+        insert_stmt = [insertStatement UTF8String];
+        sqlite3_prepare_v2(ItalishDB, insert_stmt, -1, &statement, NULL);
+        sqlite3_step(statement);
+    }
+    sqlite3_finalize(statement);
+    sqlite3_close(ItalishDB);
+    
+}
+-(NSMutableArray *)getMostPopularItems{
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
+    const char *dbpath = [dbPath UTF8String];
+    sqlite3_stmt    *statement;
+    if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK){
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT name, count(*) FROM BILLITEMS Inner Join STOCK on id = stockID Group by stockID Order by 2 desc LIMIT 5"];
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(ItalishDB, query_stmt, -1, &statement, NULL) == SQLITE_OK){
+            while (sqlite3_step(statement)== SQLITE_ROW) {
+                NSString *CAT = [NSString stringWithFormat:@"%@--%@",
+                                 [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 0)],
+                                 [[NSString alloc]initWithUTF8String:(const char *) sqlite3_column_text( statement, 1)]];
+                [tempArray addObject:CAT];
+            }
+            sqlite3_finalize(statement);
+        }
+        sqlite3_close(ItalishDB);
+    }
+    return tempArray;
+}
 
 
 @end

@@ -49,10 +49,17 @@
 //BILL
 -(void)createBillWithTableNum:(NSInteger)num withDate:(NSString *)date withStaffID:(NSInteger)ID;
 -(NSInteger)getBillID;
+-(NSMutableArray *)getAllOpenBills;
+-(void)closeBillWithID:(NSInteger)ID amount:(NSString *)amount;
+-(NSInteger)getAllTakeAwayBills;
+-(NSInteger)getAllSitDownBills;
+
 
 
 //BILL ITEMS
 -(void)addBillItemsWithBillID:(NSInteger)BillID withStockID:(NSInteger)StockID withQuantity:(NSInteger)quantity;
+-(void)removeAllBillItemsWithBillID:(NSInteger)BillID;
+-(NSMutableArray *)getMostPopularItems;
 
 
 

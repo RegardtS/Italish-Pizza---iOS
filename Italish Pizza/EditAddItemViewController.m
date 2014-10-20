@@ -1,23 +1,27 @@
 //
-//  CreateOrderViewController.m
+//  EditAddItemViewController.m
 //  Italish Pizza
 //
-//  Created by Saint on 2014/10/17.
+//  Created by Saint on 2014/10/19.
 //  Copyright (c) 2014 Saint. All rights reserved.
 //
 
-#import "CreateOrderViewController.h"
+#import "EditAddItemViewController.h"
 #import "DatabaseHelper.h"
 #import "ItemCollectionViewCell.h"
 #import "ConfirmViewController.h"
 
-@interface CreateOrderViewController () <UIAlertViewDelegate>
+@interface EditAddItemViewController ()
 
 @end
 
-@implementation CreateOrderViewController
+@implementation EditAddItemViewController
 
-@synthesize tblSections,cvItems;
+
+
+
+
+@synthesize tblSections,cvItems,billID;
 
 DatabaseHelper *db;
 
@@ -26,7 +30,6 @@ NSMutableArray *itemNames;
 NSMutableArray *itemPrices;
 NSMutableArray *items;
 NSMutableArray *selectedItems;
-
 
 
 - (void)viewDidLoad {
@@ -45,7 +48,7 @@ NSMutableArray *selectedItems;
     
     tblSections.delegate = self;
     tblSections.dataSource = self;
-
+    
     cvItems.delegate = self;
     cvItems.dataSource = self;
     
@@ -58,7 +61,6 @@ NSMutableArray *selectedItems;
 }
 
 
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"Cell";
     
@@ -67,7 +69,7 @@ NSMutableArray *selectedItems;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-
+    
     cell.textLabel.text = [sections objectAtIndex:indexPath.row];
     
     return cell;
@@ -91,14 +93,14 @@ NSMutableArray *selectedItems;
     
     cell.tag = indexPath.row;
     
-   
+    
     NSArray * arrayT = [[items objectAtIndex:indexPath.row] componentsSeparatedByString:@"--"];
-
+    
     
     cell.lblName.text = (NSString *)[arrayT firstObject];
     cell.lblPrice.text = [NSString stringWithFormat:@"R%@",(NSString *)[arrayT lastObject]];
     
-  
+    
     UITapGestureRecognizer *tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
     [cell.btnDelete addGestureRecognizer:tapper];
     
@@ -142,7 +144,7 @@ NSMutableArray *selectedItems;
 }
 
 -(NSInteger )getQuantityWithTag:(NSInteger)tag{
-
+    
     NSString *stringToCheck = [NSString stringWithFormat:@"%i:%i",[tblSections indexPathForSelectedRow].row+1,tag];
     NSInteger counter = 0;
     
@@ -167,41 +169,6 @@ NSMutableArray *selectedItems;
 }
 
 
-
-
-
-- (IBAction)btnDonePressed:(id)sender {
-    if ([selectedItems count] > 0) {
-        [self performSegueWithIdentifier:@"confirmSegue" sender:self];
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No items selected" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"confirmSegue"]) {
-        ConfirmViewController *cVC = [segue destinationViewController];
-        cVC.selectedItems = selectedItems;
-    }
-}
-
-
-- (IBAction)btnDeletePressed:(id)sender {
-    if ([selectedItems count] > 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Discard" message:@"Are you sure you want to discard the current order?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Discard", nil];
-        [alert show];
-    }else{
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-}
--(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 1) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-}
-
-
 -(void)tapped:(UITapGestureRecognizer *)gestureRecognizer{
     CGPoint p = [gestureRecognizer locationInView:cvItems];
     NSIndexPath *indexPath = [cvItems indexPathForItemAtPoint:p];
@@ -215,44 +182,40 @@ NSMutableArray *selectedItems;
 }
 
 
+
+
+
+- (IBAction)btnBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)btnDone:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *tempSave = [NSString stringWithFormat:@"BillID%i",billID];
+    NSArray *tempAr = [defaults objectForKey:tempSave];
+    NSMutableArray *tempMutAr = [[NSMutableArray alloc] initWithArray:tempAr];
+    [tempMutAr addObjectsFromArray:selectedItems];
+    [defaults setValue:tempMutAr forKey:tempSave];
+    [defaults synchronize];
+    
+    [db removeAllBillItemsWithBillID:billID];
+    
+        
+        for (int i = 0; i < selectedItems.count; i++) {
+            NSString *tempStr = [selectedItems objectAtIndex:i];
+            NSArray * arrayT = [tempStr componentsSeparatedByString:@":"];
+            NSMutableArray *tempAr = [[NSMutableArray alloc] init];
+            tempAr = [db getAllStockIDWithCatID:[arrayT firstObject]];
+            NSString *item = [tempAr objectAtIndex:[[arrayT lastObject] integerValue]];
+            [db addBillItemsWithBillID:[db getBillID] withStockID:[item integerValue] withQuantity:1];
+        }
+
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    
+    
+}
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

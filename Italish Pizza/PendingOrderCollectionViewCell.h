@@ -15,11 +15,4 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblCurrentTotal;
 @property (strong, nonatomic) IBOutlet UILabel *lblTimeOfOrder;
 
-@property (strong, nonatomic) IBOutlet UIView *lblBackgroundBlue;
-
-@property (strong, nonatomic) IBOutlet UILabel *lblEdit;
-@property (strong, nonatomic) IBOutlet UILabel *lblPay;
-
-@property (strong, nonatomic) IBOutlet UIView *lblDelete;
-
 @end

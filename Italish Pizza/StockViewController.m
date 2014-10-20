@@ -16,27 +16,40 @@
 
 @implementation StockViewController
 
-@synthesize tblView;
+@synthesize tblView,categories;
 DatabaseHelper *db;
 
 
 
 NSMutableArray *dataArray;
-NSMutableArray *categories;
+
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     
     tblView.delegate =self;
     tblView.dataSource = self;
+    
+   
 
     db = [[DatabaseHelper alloc] init];
     
+    
+    
+}
+
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self initSetup];
+}
+
+-(void)initSetup{
+    
     dataArray = [[NSMutableArray alloc] init];
-    
-    
     
     NSMutableArray *stockCat = [[NSMutableArray alloc] init];
     stockCat = [db getAllStockCategories];

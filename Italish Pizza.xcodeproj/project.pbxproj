@@ -26,6 +26,14 @@
 		CE249CE519F2A6300084861B /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CE419F2A6300084861B /* ReportViewController.m */; };
 		CE249CE819F2A72F0084861B /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CE719F2A72F0084861B /* UICountingLabel.m */; };
 		CE249CED19F375890084861B /* TableSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249CEC19F375890084861B /* TableSelectViewController.m */; };
+		CE5F42AF19F4108E00F3516D /* EditAddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F42AE19F4108E00F3516D /* EditAddItemViewController.m */; };
+		CE5F42B519F45FD800F3516D /* customer.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5F42B019F45FD800F3516D /* customer.png */; };
+		CE5F42B619F45FD800F3516D /* bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5F42B119F45FD800F3516D /* bookmark.png */; };
+		CE5F42B719F45FD800F3516D /* reports.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5F42B219F45FD800F3516D /* reports.png */; };
+		CE5F42B819F45FD800F3516D /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5F42B319F45FD800F3516D /* list.png */; };
+		CE5F42B919F45FD800F3516D /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5F42B419F45FD800F3516D /* user.png */; };
+		CE5F42BB19F4608700F3516D /* cutlery-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5F42BA19F4608700F3516D /* cutlery-32.png */; };
+		CE5F42BD19F460F500F3516D /* food-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5F42BC19F460F500F3516D /* food-32.png */; };
 		CE7FF9FB19EE8351004E11E6 /* CustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FF9FA19EE8351004E11E6 /* CustomerViewController.m */; };
 		CE7FF9FD19EE8435004E11E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7FF9FC19EE8435004E11E6 /* QuartzCore.framework */; };
 		CE7FF9FF19EE9090004E11E6 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7FF9FE19EE9090004E11E6 /* plus.png */; };
@@ -64,6 +72,8 @@
 		CE8D200219B66E5C0087FC6E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D200119B66E5C0087FC6E /* UserViewController.m */; };
 		CE8D200C19B689F40087FC6E /* 19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE8D200B19B689F40087FC6E /* 19.jpg */; };
 		CE8D200F19B6936D0087FC6E /* edit_user-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8D200E19B6936D0087FC6E /* edit_user-32.png */; };
+		CE8E13AC19F3BE03008D2508 /* EditOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E13AB19F3BE03008D2508 /* EditOrderViewController.m */; };
+		CE8E13B019F3C785008D2508 /* NSDate+NVTimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E13AF19F3C785008D2508 /* NSDate+NVTimeAgo.m */; };
 		CE9B953219BCF5A10076293E /* BookingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9B953119BCF5A10076293E /* BookingViewController.m */; };
 		CEBA237319B46D6F00436F01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237219B46D6F00436F01 /* Foundation.framework */; };
 		CEBA237519B46D6F00436F01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237419B46D6F00436F01 /* CoreGraphics.framework */; };
@@ -134,6 +144,15 @@
 		CE249CE719F2A72F0084861B /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
 		CE249CEB19F375890084861B /* TableSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableSelectViewController.h; sourceTree = "<group>"; };
 		CE249CEC19F375890084861B /* TableSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableSelectViewController.m; sourceTree = "<group>"; };
+		CE5F42AD19F4108E00F3516D /* EditAddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAddItemViewController.h; sourceTree = "<group>"; };
+		CE5F42AE19F4108E00F3516D /* EditAddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAddItemViewController.m; sourceTree = "<group>"; };
+		CE5F42B019F45FD800F3516D /* customer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customer.png; sourceTree = "<group>"; };
+		CE5F42B119F45FD800F3516D /* bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmark.png; sourceTree = "<group>"; };
+		CE5F42B219F45FD800F3516D /* reports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reports.png; sourceTree = "<group>"; };
+		CE5F42B319F45FD800F3516D /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		CE5F42B419F45FD800F3516D /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		CE5F42BA19F4608700F3516D /* cutlery-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutlery-32.png"; sourceTree = "<group>"; };
+		CE5F42BC19F460F500F3516D /* food-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "food-32.png"; sourceTree = "<group>"; };
 		CE7FF9F919EE8351004E11E6 /* CustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerViewController.h; sourceTree = "<group>"; };
 		CE7FF9FA19EE8351004E11E6 /* CustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerViewController.m; sourceTree = "<group>"; };
 		CE7FF9FC19EE8435004E11E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -213,6 +232,10 @@
 		CE8D200119B66E5C0087FC6E /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		CE8D200B19B689F40087FC6E /* 19.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 19.jpg; sourceTree = "<group>"; };
 		CE8D200E19B6936D0087FC6E /* edit_user-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit_user-32.png"; sourceTree = "<group>"; };
+		CE8E13AA19F3BE03008D2508 /* EditOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditOrderViewController.h; sourceTree = "<group>"; };
+		CE8E13AB19F3BE03008D2508 /* EditOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditOrderViewController.m; sourceTree = "<group>"; };
+		CE8E13AE19F3C785008D2508 /* NSDate+NVTimeAgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NVTimeAgo.h"; sourceTree = "<group>"; };
+		CE8E13AF19F3C785008D2508 /* NSDate+NVTimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NVTimeAgo.m"; sourceTree = "<group>"; };
 		CE9B953019BCF5A10076293E /* BookingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingViewController.h; sourceTree = "<group>"; };
 		CE9B953119BCF5A10076293E /* BookingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingViewController.m; sourceTree = "<group>"; };
 		CEBA236F19B46D6F00436F01 /* Italish Pizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Italish Pizza.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -426,6 +449,10 @@
 				CE249CE419F2A6300084861B /* ReportViewController.m */,
 				CE249CEB19F375890084861B /* TableSelectViewController.h */,
 				CE249CEC19F375890084861B /* TableSelectViewController.m */,
+				CE8E13AA19F3BE03008D2508 /* EditOrderViewController.h */,
+				CE8E13AB19F3BE03008D2508 /* EditOrderViewController.m */,
+				CE5F42AD19F4108E00F3516D /* EditAddItemViewController.h */,
+				CE5F42AE19F4108E00F3516D /* EditAddItemViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -433,6 +460,7 @@
 		CE8D200319B685230087FC6E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				CE8E13AD19F3C785008D2508 /* NSDate-Time-Ago */,
 				CE249CE619F2A72F0084861B /* UICountingLabel.h */,
 				CE249CE719F2A72F0084861B /* UICountingLabel.m */,
 				CE249CC219F2A6090084861B /* PNChart */,
@@ -445,6 +473,13 @@
 		CE8D200D19B6933B0087FC6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CE5F42BC19F460F500F3516D /* food-32.png */,
+				CE5F42BA19F4608700F3516D /* cutlery-32.png */,
+				CE5F42B019F45FD800F3516D /* customer.png */,
+				CE5F42B119F45FD800F3516D /* bookmark.png */,
+				CE5F42B219F45FD800F3516D /* reports.png */,
+				CE5F42B319F45FD800F3516D /* list.png */,
+				CE5F42B419F45FD800F3516D /* user.png */,
 				CE7FF9FE19EE9090004E11E6 /* plus.png */,
 				CE0B1F3D19ED644100190DDE /* clouds.jpg */,
 				CE0B1F3B19ED626E00190DDE /* footer_lodyas.png */,
@@ -453,6 +488,15 @@
 				CE8D200E19B6936D0087FC6E /* edit_user-32.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		CE8E13AD19F3C785008D2508 /* NSDate-Time-Ago */ = {
+			isa = PBXGroup;
+			children = (
+				CE8E13AE19F3C785008D2508 /* NSDate+NVTimeAgo.h */,
+				CE8E13AF19F3C785008D2508 /* NSDate+NVTimeAgo.m */,
+			);
+			path = "NSDate-Time-Ago";
 			sourceTree = "<group>";
 		};
 		CEBA236619B46D6F00436F01 = {
@@ -609,15 +653,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5F42B619F45FD800F3516D /* bookmark.png in Resources */,
+				CE5F42B719F45FD800F3516D /* reports.png in Resources */,
 				CE8D200F19B6936D0087FC6E /* edit_user-32.png in Resources */,
 				CE0B1F3C19ED626E00190DDE /* footer_lodyas.png in Resources */,
+				CE5F42B919F45FD800F3516D /* user.png in Resources */,
+				CE5F42B819F45FD800F3516D /* list.png in Resources */,
 				CE7FF9FF19EE9090004E11E6 /* plus.png in Resources */,
 				CEBA238E19B46D6F00436F01 /* Images.xcassets in Resources */,
+				CE5F42BD19F460F500F3516D /* food-32.png in Resources */,
+				CE5F42BB19F4608700F3516D /* cutlery-32.png in Resources */,
 				CE0B1F3E19ED644100190DDE /* clouds.jpg in Resources */,
 				CE8D200C19B689F40087FC6E /* 19.jpg in Resources */,
 				CEBA237D19B46D6F00436F01 /* InfoPlist.strings in Resources */,
 				CEBA238619B46D6F00436F01 /* Main.storyboard in Resources */,
 				CEC12E7A19C6DAA000358027 /* 20.jpg in Resources */,
+				CE5F42B519F45FD800F3516D /* customer.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,10 +704,13 @@
 				CE249CDB19F2A6090084861B /* PNChartLabel.m in Sources */,
 				CE7FFA9319EE97B9004E11E6 /* POPGeometry.mm in Sources */,
 				CEBA238319B46D6F00436F01 /* AppDelegate.m in Sources */,
+				CE8E13B019F3C785008D2508 /* NSDate+NVTimeAgo.m in Sources */,
 				CE249CDF19F2A6090084861B /* PNLineChartData.m in Sources */,
+				CE5F42AF19F4108E00F3516D /* EditAddItemViewController.m in Sources */,
 				CE249CE019F2A6090084861B /* PNLineChartDataItem.m in Sources */,
 				CE249CDE19F2A6090084861B /* PNLineChart.m in Sources */,
 				CE9B953219BCF5A10076293E /* BookingViewController.m in Sources */,
+				CE8E13AC19F3BE03008D2508 /* EditOrderViewController.m in Sources */,
 				CECC7F2019F0F03000B4267F /* CreateOrderViewController.m in Sources */,
 				CE7FFA8919EE97B9004E11E6 /* POPAnimation.mm in Sources */,
 				CE249CDD19F2A6090084861B /* PNColor.m in Sources */,

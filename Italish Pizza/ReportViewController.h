@@ -10,4 +10,14 @@
 
 @interface ReportViewController : UIViewController
 
+- (IBAction)btnSales:(id)sender;
+- (IBAction)btnPopularItems:(id)sender;
+- (IBAction)btnTakeSit:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIView *viewSitDown;
+@property (strong, nonatomic) IBOutlet UILabel *lblTakeAway;
+@property (strong, nonatomic) IBOutlet UILabel *lblSitDown;
+
+@property (strong, nonatomic) IBOutlet UIView *viewMostPopular;
+
 @end

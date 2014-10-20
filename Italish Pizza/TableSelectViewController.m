@@ -76,15 +76,22 @@ bool Selected = NO;
 }
 
 - (IBAction)btnTakeOrder:(id)sender {
+
     if (Selected) {
         NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-        [outputFormatter setDateFormat:@"dd-MM-yyyy"]; //24hr time format
+        
+        [outputFormatter setDateFormat:@"dd-MM-yyyy HH:mm"];
         NSString *dateString = [outputFormatter stringFromDate:[NSDate date]];
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *auth = [defaults objectForKey:@"ID"];
         
         [db createBillWithTableNum:selectedTable withDate:dateString withStaffID:[auth integerValue]];
+        
+        NSString *tempSave = [NSString stringWithFormat:@"BillID%i",[db getBillID]];
+        [defaults setValue:theSelectedItems forKey:tempSave];
+        [defaults synchronize];
+        
         
         
         for (int i = 0; i < theSelectedItems.count; i++) {
@@ -95,6 +102,9 @@ bool Selected = NO;
             tempAr = [db getAllStockIDWithCatID:[arrayT firstObject]];
             
             NSString *item = [tempAr objectAtIndex:[[arrayT lastObject] integerValue]];
+            
+            
+
             
             [db addBillItemsWithBillID:[db getBillID] withStockID:[item integerValue] withQuantity:1];
         }

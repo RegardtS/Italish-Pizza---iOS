@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tblView;
 
+@property (strong, nonatomic) NSMutableArray *categories;
 
 
 @end

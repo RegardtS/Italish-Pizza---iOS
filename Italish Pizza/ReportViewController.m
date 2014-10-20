@@ -8,6 +8,7 @@
 
 #import "ReportViewController.h"
 #import "PNChart.h"
+#import "DatabaseHelper.h"
 
 @interface ReportViewController ()
 
@@ -15,68 +16,116 @@
 
 @implementation ReportViewController
 
+DatabaseHelper *db;
+
+@synthesize lblSitDown,lblTakeAway,viewSitDown,viewMostPopular;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    db = [[DatabaseHelper alloc] init];
     
-    PNLineChart * lineChart = [[PNLineChart alloc] initWithFrame:CGRectMake(0, 80, SCREEN_WIDTH, 200.0)];
-    [lineChart setXLabels:@[@"SEP 1",@"SEP 2",@"SEP 3",@"SEP 4",@"SEP 5"]];
-    
-    // Line Chart No.1
-    NSArray * data01Array = @[@60.1, @160.1, @126.4, @262.2, @186.2];
-    PNLineChartData *data01 = [PNLineChartData new];
-    data01.color = PNFreshGreen;
-    data01.itemCount = lineChart.xLabels.count;
-    data01.getData = ^(NSUInteger index) {
-        CGFloat yValue = [data01Array[index] floatValue];
-        return [PNLineChartDataItem dataItemWithY:yValue];
-    };
-    // Line Chart No.2
-    NSArray * data02Array = @[@20.1, @180.1, @26.4, @202.2, @126.2];
-    PNLineChartData *data02 = [PNLineChartData new];
-    data02.color = PNTwitterColor;
-    data02.itemCount = lineChart.xLabels.count;
-    data02.getData = ^(NSUInteger index) {
-        CGFloat yValue = [data02Array[index] floatValue];
-        return [PNLineChartDataItem dataItemWithY:yValue];
-    };
-    
-    lineChart.chartData = @[data01, data02];
-    [lineChart strokeChart];
-    
-    [self.view addSubview:lineChart];
+    viewMostPopular.hidden = YES;
     
     
+    NSMutableArray *popItems =[db getMostPopularItems];
     
-    PNCircleChart * circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 80.0, SCREEN_WIDTH, 100.0) andTotal:[NSNumber numberWithInt:100] andCurrent:[NSNumber numberWithInt:60] andClockwise:NO andShadow:YES];
-    circleChart.backgroundColor = [UIColor clearColor];
-    [circleChart setStrokeColor:PNGreen];
-    [circleChart strokeChart];
-    
-    [self.view addSubview:circleChart];
+    if ([popItems count] > 0) {
+        NSMutableArray *items = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < [popItems count]; i++) {
+            NSArray * arrayT = [[popItems objectAtIndex:i] componentsSeparatedByString:@"--"];
+            [items addObject:[PNPieChartDataItem dataItemWithValue:[[arrayT lastObject] floatValue] color:[UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1] description:[arrayT firstObject]]];
+        }
+        
+        PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(0, 0, 240.0, 240.0) items:items];
+        pieChart.descriptionTextColor = [UIColor blackColor];
+        pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:14.0];
+        [pieChart strokeChart];
+        [viewMostPopular addSubview:pieChart];
+    }
     
     
     
     
+    NSInteger totalSit =[db getAllSitDownBills];
+    NSInteger totalTake =[db getAllTakeAwayBills];
     
-    
-    NSArray *items = @[[PNPieChartDataItem dataItemWithValue:10 color:PNRed],
-                       [PNPieChartDataItem dataItemWithValue:20 color:PNBlue description:@"WWDC"],
-                       [PNPieChartDataItem dataItemWithValue:40 color:PNGreen description:@"GOOL I/O"],
-                       ];
-    
-    
-    
-    PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 155.0, 240.0, 240.0) items:items];
-    pieChart.descriptionTextColor = [UIColor whiteColor];
-    pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:14.0];
-    [pieChart strokeChart];
-    
-    [self.view addSubview:pieChart];
-    
-    
-    
+    if (totalSit == 0 & totalTake == 0) {
+        [self reset];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No data available" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }else{
+        lblSitDown.text = [NSString stringWithFormat:@"%i",totalSit];
+        lblTakeAway.text = [NSString stringWithFormat:@"%i",totalTake];
+        
+        
+        
+        NSArray *itemsT = @[[PNPieChartDataItem dataItemWithValue:totalTake color:PNRed description:@"Take Aways"],
+                            [PNPieChartDataItem dataItemWithValue:totalSit color:PNBlue description:@"Sit Down"]];
+        
+        
+        
+        PNPieChart *pieChart2 = [[PNPieChart alloc] initWithFrame:CGRectMake(0, 0, 240.0, 240.0) items:itemsT];
+        pieChart2.descriptionTextColor = [UIColor whiteColor];
+        pieChart2.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:14.0];
+        [pieChart2 strokeChart];
+        
+        [viewSitDown addSubview:pieChart2];
+    }
+   
 }
 
+-(void)reset{
+    viewSitDown.hidden = YES;
+    viewMostPopular.hidden = YES;
+}
 
+- (IBAction)btnPopularItems:(id)sender {
+    [self reset];
+     viewMostPopular.hidden = NO;
+}
 
+- (IBAction)btnTakeSit:(id)sender {
+    [self reset];
+     viewSitDown.hidden = NO;
+}
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

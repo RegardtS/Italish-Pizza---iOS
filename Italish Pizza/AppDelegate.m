@@ -22,10 +22,8 @@ DatabaseHelper *db;
     if (![defaults objectForKey:@"Init"]) {
         db = [[DatabaseHelper alloc] init];
         [db startingStuff];
-        [db addStaffWithUsername:@"Regi" withPassword:@"123" withAuthority:2];
+        [db addStaffWithUsername:@"Admin" withPassword:@"123" withAuthority:2];
         [db addStaffWithUsername:@"Mark" withPassword:@"123" withAuthority:1];
-        [db addStaffWithUsername:@"Petrus" withPassword:@"123" withAuthority:0];
-        [db addStaffWithUsername:@"Coffee lady" withPassword:@"123" withAuthority:0];
         
         
         [defaults setBool:YES forKey:@"Init"];
@@ -36,12 +34,9 @@ DatabaseHelper *db;
         [self populateStockCategories];
         [self populateStock];
         
-        [db addCustomerWithName:@"Regi" withSurname:@"Schindler" withContactNum:@"0781150888" withEmail:@""];
-        [db addCustomerWithName:@"Mark" withSurname:@"Feb" withContactNum:@"0781150888" withEmail:@""];
-        [db addCustomerWithName:@"Petrus" withSurname:@"Smit" withContactNum:@"0781150888" withEmail:@""];
-        [db addCustomerWithName:@"Regi" withSurname:@"Schindler" withContactNum:@"0781150888" withEmail:@""];
-        [db addCustomerWithName:@"Mark" withSurname:@"Feb" withContactNum:@"0781150888" withEmail:@""];
-        [db addCustomerWithName:@"Petrus" withSurname:@"Smit" withContactNum:@"0781150888" withEmail:@""];
+        [db addCustomerWithName:@"Regardt" withSurname:@"Schindler" withContactNum:@"0781150888" withEmail:@""];
+        [db addCustomerWithName:@"Mark" withSurname:@"Feb" withContactNum:@"0881150888" withEmail:@""];
+        [db addCustomerWithName:@"Petrus" withSurname:@"Smit" withContactNum:@"0181150888" withEmail:@""];
         
         
         
