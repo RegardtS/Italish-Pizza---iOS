@@ -44,7 +44,7 @@ bool Selected = NO;
 
 - (IBAction)btnPressed:(id)sender {
     UIButton *temp = (UIButton *)sender;
-    selectedTable = temp.tag;
+    selectedTable = (int)temp.tag;
     Selected = YES;
     [self reset];
     temp.backgroundColor = [UIColor colorWithRed:37/255.0 green:155/255.0 blue:36/255.0 alpha:1];
@@ -73,6 +73,7 @@ bool Selected = NO;
 
 - (IBAction)backPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    Selected = NO;
 }
 
 - (IBAction)btnTakeOrder:(id)sender {
@@ -88,7 +89,7 @@ bool Selected = NO;
         
         [db createBillWithTableNum:selectedTable withDate:dateString withStaffID:[auth integerValue]];
         
-        NSString *tempSave = [NSString stringWithFormat:@"BillID%i",[db getBillID]];
+        NSString *tempSave = [NSString stringWithFormat:@"BillID%li",(long)[db getBillID]];
         [defaults setValue:theSelectedItems forKey:tempSave];
         [defaults synchronize];
         
@@ -102,12 +103,9 @@ bool Selected = NO;
             tempAr = [db getAllStockIDWithCatID:[arrayT firstObject]];
             
             NSString *item = [tempAr objectAtIndex:[[arrayT lastObject] integerValue]];
-            
-            
-
-            
             [db addBillItemsWithBillID:[db getBillID] withStockID:[item integerValue] withQuantity:1];
         }
+        Selected = NO;
         [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:1] animated:YES];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No table selected" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];

@@ -57,7 +57,7 @@ DatabaseHelper *db;
     lblTime.delegate = self;
     lblDate.delegate = self;
     
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDate *currentDate = [NSDate date];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setMonth:+3];
@@ -74,7 +74,7 @@ DatabaseHelper *db;
     int endHour = 22;
     
     NSDate *date1 = [NSDate date];
-    NSCalendar *gregorian2 = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+    NSCalendar *gregorian2 = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
     NSDateComponents *components = [gregorian2 components: NSUIntegerMax fromDate: date1];
     [components setHour: startHour];
     [components setMinute: 0];

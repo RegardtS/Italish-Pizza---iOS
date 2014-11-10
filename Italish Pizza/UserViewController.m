@@ -182,7 +182,7 @@
 }
 
 - (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return arAuthChoices.count;
+    return (int)arAuthChoices.count;
 }
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{

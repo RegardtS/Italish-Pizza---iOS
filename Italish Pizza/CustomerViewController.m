@@ -63,6 +63,11 @@ DatabaseHelper *db;
     [self.view addSubview:btnCreate];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setupTableView];
+}
+
 -(void)setupTableView{
     [customerAllDetails removeAllObjects];
     [customerNames removeAllObjects];
@@ -128,29 +133,24 @@ DatabaseHelper *db;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:[customerID objectAtIndex:indexPath.row] forKey:@"TempCustID"];
     [defaults setValue:[customerNames objectAtIndex:indexPath.row] forKey:@"TempCustName"];
     [defaults setValue:[customerContact objectAtIndex:indexPath.row] forKey:@"TempCustContact"];
     [defaults synchronize];
-    
     if (fromBooking) {
         fromBooking = NO;
         [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [self performSegueWithIdentifier:@"editSegue" sender:self];
     }
 }
 
 // PopViewControllerDelegate callback function
 - (void)dismissWithSaveWithUsername:(NSString*)username withSurname:(NSString *)surname withContactNum:(NSString *)contactNum withEmail:(NSString *)email{
-    
     [db addCustomerWithName:username withSurname:surname withContactNum:contactNum withEmail:email];
-    
     [[currentPopoverSegue popoverController] dismissPopoverAnimated: YES]; // dismiss the popover
-    
-    
     [self setupTableView];
-    
 }
 
 

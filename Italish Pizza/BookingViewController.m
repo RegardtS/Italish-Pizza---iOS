@@ -121,8 +121,6 @@ NSMutableArray *allDetails;
     
     NSArray* foo = [[allDetails objectAtIndex:indexPath.row] componentsSeparatedByString: @"--"];
     
-    NSLog([allDetails objectAtIndex:indexPath.row]);
-    
     NSString *name;
     NSString *contactNum;
     NSString *time = [foo objectAtIndex:2];

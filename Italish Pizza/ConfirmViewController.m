@@ -38,17 +38,17 @@ NSMutableArray *menuItemsQuantity;
     menuItemsQuantity = [[NSMutableArray alloc] init];
     
     
-    NSMutableArray *godArray = [self getCountAndRemoveMultiples:selectedItems];
+    NSMutableArray *newTempArray = [self getCountAndRemoveMultiples:selectedItems];
     
-    NSArray *selectedItems = [godArray objectAtIndex:0];
-    NSArray *selectedQuantities = [godArray objectAtIndex:1];
+    NSArray *selectedItemsNames = [newTempArray objectAtIndex:0];
+    NSArray *selectedQuantities = [newTempArray objectAtIndex:1];
     
     CGFloat totalPrice = 0;
     
     for (int i = 0; i < selectedQuantities.count; i++) {
-        NSString *tempStr = [selectedItems objectAtIndex:i];
+        NSString *newTempStr = [selectedItemsNames objectAtIndex:i];
         
-        NSArray * arrayT = [tempStr componentsSeparatedByString:@":"];
+        NSArray * arrayT = [newTempStr componentsSeparatedByString:@":"];
         NSMutableArray *tempAr = [[NSMutableArray alloc] init];
         tempAr = [db getAllStockWithCatID:[arrayT firstObject]];
         

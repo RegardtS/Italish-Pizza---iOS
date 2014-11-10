@@ -56,8 +56,8 @@ DatabaseHelper *db;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No data available" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }else{
-        lblSitDown.text = [NSString stringWithFormat:@"%i",totalSit];
-        lblTakeAway.text = [NSString stringWithFormat:@"%i",totalTake];
+        lblSitDown.text = [NSString stringWithFormat:@"%li",(long)totalSit];
+        lblTakeAway.text = [NSString stringWithFormat:@"%li",(long)totalTake];
         
         
         

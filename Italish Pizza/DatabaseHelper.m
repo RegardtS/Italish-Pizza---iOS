@@ -263,9 +263,6 @@ NSString *CREATE_TABLE_BILLITEMS;
     }
     return returnedStr;
 }
-
-
-
 -(void)changePassWithUserID:(NSInteger)ID withPassword:(NSString *)password{
     NSString *docsDir;
     NSArray *dirPaths;
@@ -277,12 +274,12 @@ NSString *CREATE_TABLE_BILLITEMS;
     if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
         const char *update_stmt;
         
-        NSString *updateStatement = [NSString stringWithFormat:@"UPDATE %@ SET %@ = \"%@\" WHERE %@=%i",
+        NSString *updateStatement = [NSString stringWithFormat:@"UPDATE %@ SET %@ = \"%@\" WHERE %@=%li",
                                      TABLE_STAFF,
                                      KEY_STAFF_PASSWORD,
                                      password,
                                      KEY_STAFF_ID,
-                                     ID];
+                                     (long)ID];
         update_stmt = [updateStatement UTF8String];
         sqlite3_prepare_v2(ItalishDB, update_stmt, -1, &statement, NULL);
         sqlite3_step(statement);
@@ -303,14 +300,14 @@ NSString *CREATE_TABLE_BILLITEMS;
     const char *dbpath = [dbPath UTF8String];
     if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
         const char *insert_stmt;
-        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@) VALUES(\"%@\",\"%@\",%i) ",
+        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@) VALUES(\"%@\",\"%@\",%li) ",
                                      TABLE_STAFF,
                                      KEY_STAFF_NAME,
                                      KEY_STAFF_PASSWORD,
                                      KEY_STAFF_AUTHORITY,
                                      username,
                                      password,
-                                     auth
+                                     (long)auth
                                      ];
         insert_stmt = [insertStatement UTF8String];
         sqlite3_prepare_v2(ItalishDB, insert_stmt, -1, &statement, NULL);
@@ -496,6 +493,38 @@ NSString *CREATE_TABLE_BILLITEMS;
     return tempStr;
 }
 
+-(void)updateCustomerWithID:(NSString *)ID WithName:(NSString*)name withSurname:(NSString *)surname withContactNum:(NSString *)contactNum withEmail:(NSString *)email{
+    NSString *docsDir;
+    NSArray *dirPaths;
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docsDir = dirPaths[0];
+    dbPath = [[NSString alloc]initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",DATABASE_NAME]]];
+    sqlite3_stmt *statement = nil;
+    const char *dbpath = [dbPath UTF8String];
+    if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
+        const char *update_stmt;
+        
+        NSString *updateStatement = [NSString stringWithFormat:@"UPDATE %@ SET %@ = \"%@\", %@ = \"%@\", %@ = \"%@\", %@ = \"%@\" WHERE %@=%@",
+                                     TABLE_CUSTOMER,
+                                     KEY_CUSTOMER_NAME,
+                                     name,
+                                     KEY_CUSTOMER_SURNAME,
+                                     surname,
+                                     KEY_CUSTOMER_CONTACTNUM,
+                                     contactNum,
+                                     KEY_CUSTOMER_EMAIL,
+                                     email,
+                                     KEY_STAFF_ID,
+                                     ID];
+        
+        update_stmt = [updateStatement UTF8String];
+        sqlite3_prepare_v2(ItalishDB, update_stmt, -1, &statement, NULL);
+        sqlite3_step(statement);
+    }
+    sqlite3_finalize(statement);
+    sqlite3_close(ItalishDB);
+}
+
 
 //STOCKCATEGORY
 -(void)addStockCategory:(NSString *)categoryName{
@@ -666,16 +695,16 @@ NSString *CREATE_TABLE_BILLITEMS;
     const char *dbpath = [dbPath UTF8String];
     if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
         const char *insert_stmt;
-        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@,%@) VALUES(%i,\"%@\",\"%@\",%i) ",
+        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@,%@) VALUES(%li,\"%@\",\"%@\",%li) ",
                                      TABLE_BOOKINGS,
                                      KEY_BOOKING_CUSTOMERID,
                                      KEY_BOOKING_TIME,
                                      KEY_BOOKING_DATE,
                                      KEY_BOOKING_SIZE,
-                                     custID,
+                                     (long)custID,
                                      time,
                                      date,
-                                     size
+                                     (long)size
                                      ];
         insert_stmt = [insertStatement UTF8String];
         sqlite3_prepare_v2(ItalishDB, insert_stmt, -1, &statement, NULL);
@@ -759,15 +788,15 @@ NSString *CREATE_TABLE_BILLITEMS;
     const char *dbpath = [dbPath UTF8String];
     if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
         const char *insert_stmt;
-        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@,%@) VALUES(%i,\"%@\",%i, 0) ",
+        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@,%@) VALUES(%li,\"%@\",%li, 0) ",
                                      TABLE_BILL,
                                      KEY_BILL_TABLENUMBER,
                                      KEY_BILL_DATEISSUED,
                                      KEY_BILL_STAFFID,
                                      KEY_BILL_CLOSED,
-                                     num,
+                                     (long)num,
                                      date,
-                                     ID
+                                     (long)ID
                                      ];
         insert_stmt = [insertStatement UTF8String];
         sqlite3_prepare_v2(ItalishDB, insert_stmt, -1, &statement, NULL);
@@ -848,13 +877,13 @@ NSString *CREATE_TABLE_BILLITEMS;
     if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
         const char *update_stmt;
         
-        NSString *updateStatement = [NSString stringWithFormat:@"UPDATE %@ SET %@ = 1, %@ = \"%@\" WHERE %@=%i",
+        NSString *updateStatement = [NSString stringWithFormat:@"UPDATE %@ SET %@ = 1, %@ = \"%@\" WHERE %@=%li",
                                      TABLE_BILL,
                                      KEY_BILL_CLOSED,
                                      KEY_BILL_TOTALAMOUNT,
                                      amount,
                                      KEY_BILL_ID,
-                                     ID];
+                                     (long)ID];
         update_stmt = [updateStatement UTF8String];
         sqlite3_prepare_v2(ItalishDB, update_stmt, -1, &statement, NULL);
         sqlite3_step(statement);
@@ -925,14 +954,14 @@ NSString *CREATE_TABLE_BILLITEMS;
     const char *dbpath = [dbPath UTF8String];
     if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
         const char *insert_stmt;
-        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@) VALUES(%i,%i,%i) ",
+        NSString *insertStatement = [NSString stringWithFormat:@"INSERT INTO %@ (%@,%@,%@) VALUES(%li,%li,%li) ",
                                      TABLE_BILLITEMS,
                                      KEY_BILLITEMS_BILLID,
                                      KEY_BILLITEMS_STOCKID,
                                      KEY_BILLITEMS_QUANTITY,
-                                     BillID,
-                                     StockID,
-                                     quantity
+                                     (long)BillID,
+                                     (long)StockID,
+                                     (long)quantity
                                      ];
         insert_stmt = [insertStatement UTF8String];
         sqlite3_prepare_v2(ItalishDB, insert_stmt, -1, &statement, NULL);
@@ -951,10 +980,10 @@ NSString *CREATE_TABLE_BILLITEMS;
     const char *dbpath = [dbPath UTF8String];
     if (sqlite3_open(dbpath, &ItalishDB) == SQLITE_OK) {
         const char *insert_stmt;
-        NSString *insertStatement = [NSString stringWithFormat:@"DELETE FROM %@ WHERE %@ = %i",
+        NSString *insertStatement = [NSString stringWithFormat:@"DELETE FROM %@ WHERE %@ = %li",
                                      TABLE_BILLITEMS,
                                      KEY_BILLITEMS_BILLID,
-                                     BillID
+                                     (long)BillID
                                      ];
         insert_stmt = [insertStatement UTF8String];
         sqlite3_prepare_v2(ItalishDB, insert_stmt, -1, &statement, NULL);

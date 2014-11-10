@@ -112,7 +112,7 @@ NSMutableArray *selectedItems;
         cell.lblTotalPrice.hidden = NO;
         
         NSInteger quantity = [self getQuantityWithTag:cell.tag];
-        cell.lblQuantity.text = [NSString stringWithFormat:@"x %i",quantity];
+        cell.lblQuantity.text = [NSString stringWithFormat:@"x %li",(long)quantity];
         
         CGFloat strFloat = (CGFloat)[[arrayT lastObject] floatValue]*quantity;
         cell.lblTotalPrice.text = [NSString stringWithFormat:@"R %.02f",strFloat];
@@ -135,7 +135,7 @@ NSMutableArray *selectedItems;
     for (int i = 0; i <[selectedItems count]; i++) {
         NSArray *subString = [[selectedItems objectAtIndex:i ] componentsSeparatedByString:@":"];
         if ([[subString objectAtIndex:0] isEqualToString:[NSString stringWithFormat:@"%i",tblSections.indexPathForSelectedRow.row+1]]) {
-            if ([[subString objectAtIndex:1] isEqualToString:[NSString stringWithFormat:@"%i",indexPath.row]]) {
+            if ([[subString objectAtIndex:1] isEqualToString:[NSString stringWithFormat:@"%li",(long)indexPath.row]]) {
                 return YES;
             }
         }
@@ -145,7 +145,7 @@ NSMutableArray *selectedItems;
 
 -(NSInteger )getQuantityWithTag:(NSInteger)tag{
     
-    NSString *stringToCheck = [NSString stringWithFormat:@"%i:%i",[tblSections indexPathForSelectedRow].row+1,tag];
+    NSString *stringToCheck = [NSString stringWithFormat:@"%i:%li",[tblSections indexPathForSelectedRow].row+1,(long)tag];
     NSInteger counter = 0;
     
     for (NSString *temp in selectedItems) {
@@ -163,7 +163,7 @@ NSMutableArray *selectedItems;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath  {
-    NSString *selectedItem =[NSString stringWithFormat:@"%i:%i",[tblSections indexPathForSelectedRow].row+1,indexPath.row];
+    NSString *selectedItem =[NSString stringWithFormat:@"%i:%li",[tblSections indexPathForSelectedRow].row+1,(long)indexPath.row];
     [selectedItems addObject:selectedItem];
     [cvItems reloadData];
 }
@@ -173,7 +173,7 @@ NSMutableArray *selectedItems;
     CGPoint p = [gestureRecognizer locationInView:cvItems];
     NSIndexPath *indexPath = [cvItems indexPathForItemAtPoint:p];
     ItemCollectionViewCell* cell = (ItemCollectionViewCell *)[cvItems cellForItemAtIndexPath:indexPath];
-    NSString *tempStr =[NSString stringWithFormat:@"%i:%i",[tblSections indexPathForSelectedRow].row+1,cell.tag];
+    NSString *tempStr =[NSString stringWithFormat:@"%i:%li",[tblSections indexPathForSelectedRow].row+1,(long)cell.tag];
     if ([selectedItems containsObject:tempStr]) {
         NSUInteger indexOfItem = [selectedItems indexOfObject:tempStr];
         [selectedItems removeObjectAtIndex:indexOfItem];

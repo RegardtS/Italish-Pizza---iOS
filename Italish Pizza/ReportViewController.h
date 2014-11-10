@@ -10,7 +10,6 @@
 
 @interface ReportViewController : UIViewController
 
-- (IBAction)btnSales:(id)sender;
 - (IBAction)btnPopularItems:(id)sender;
 - (IBAction)btnTakeSit:(id)sender;
 

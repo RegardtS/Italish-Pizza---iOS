@@ -28,6 +28,8 @@
 -(void)addCustomerWithName:(NSString*)name withSurname:(NSString *)surname withContactNum:(NSString *)contactNum withEmail:(NSString *)email;
 -(NSMutableArray *)getAllCustomers;
 -(NSString *)getCustomerInfoWithID:(NSString *)ID;
+-(void)updateCustomerWithID:(NSString *)ID WithName:(NSString*)name withSurname:(NSString *)surname withContactNum:(NSString *)contactNum withEmail:(NSString *)email;
+
 
 //STOCKCATEGORIES
 -(void)addStockCategory:(NSString *)categoryName;

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE0B1F3C19ED626E00190DDE /* footer_lodyas.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0B1F3B19ED626E00190DDE /* footer_lodyas.png */; };
 		CE0B1F3E19ED644100190DDE /* clouds.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE0B1F3D19ED644100190DDE /* clouds.jpg */; };
 		CE0B1F4119ED83F700190DDE /* ManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0B1F4019ED83F700190DDE /* ManagementViewController.m */; };
 		CE0B1F4719ED9BB800190DDE /* PendingOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0B1F4619ED9BB800190DDE /* PendingOrdersViewController.m */; };
@@ -36,7 +35,6 @@
 		CE5F42BD19F460F500F3516D /* food-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5F42BC19F460F500F3516D /* food-32.png */; };
 		CE7FF9FB19EE8351004E11E6 /* CustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FF9FA19EE8351004E11E6 /* CustomerViewController.m */; };
 		CE7FF9FD19EE8435004E11E6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7FF9FC19EE8435004E11E6 /* QuartzCore.framework */; };
-		CE7FF9FF19EE9090004E11E6 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7FF9FE19EE9090004E11E6 /* plus.png */; };
 		CE7FFA0519EE955F004E11E6 /* VBFDoubleSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FFA0219EE955F004E11E6 /* VBFDoubleSegment.m */; };
 		CE7FFA0619EE955F004E11E6 /* VBFPopFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FFA0419EE955F004E11E6 /* VBFPopFlatButton.m */; };
 		CE7FFA8819EE97B9004E11E6 /* POPAnimatableProperty.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE7FFA5719EE97B9004E11E6 /* POPAnimatableProperty.mm */; };
@@ -70,7 +68,6 @@
 		CE8D1FFD19B484550087FC6E /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1FFB19B484550087FC6E /* DatabaseHelper.m */; };
 		CE8D1FFF19B4A67A0087FC6E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8D1FFE19B4A67A0087FC6E /* libsqlite3.dylib */; };
 		CE8D200219B66E5C0087FC6E /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8D200119B66E5C0087FC6E /* UserViewController.m */; };
-		CE8D200C19B689F40087FC6E /* 19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE8D200B19B689F40087FC6E /* 19.jpg */; };
 		CE8D200F19B6936D0087FC6E /* edit_user-32.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8D200E19B6936D0087FC6E /* edit_user-32.png */; };
 		CE8E13AC19F3BE03008D2508 /* EditOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E13AB19F3BE03008D2508 /* EditOrderViewController.m */; };
 		CE8E13B019F3C785008D2508 /* NSDate+NVTimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E13AF19F3C785008D2508 /* NSDate+NVTimeAgo.m */; };
@@ -88,11 +85,11 @@
 		CEBA239719B46D6F00436F01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA237619B46D6F00436F01 /* UIKit.framework */; };
 		CEBA239F19B46D6F00436F01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEBA239D19B46D6F00436F01 /* InfoPlist.strings */; };
 		CEBA23A119B46D6F00436F01 /* Italish_PizzaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA23A019B46D6F00436F01 /* Italish_PizzaTests.m */; };
-		CEC12E7A19C6DAA000358027 /* 20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEC12E7919C6DAA000358027 /* 20.jpg */; };
 		CECC7F2019F0F03000B4267F /* CreateOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC7F1F19F0F03000B4267F /* CreateOrderViewController.m */; };
 		CECC7F2319F0F28300B4267F /* ItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC7F2219F0F28300B4267F /* ItemCollectionViewCell.m */; };
 		CECC7F2619F129B000B4267F /* ConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC7F2519F129B000B4267F /* ConfirmViewController.m */; };
 		CECC7F2919F12CB700B4267F /* ConfirmOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CECC7F2819F12CB700B4267F /* ConfirmOrderTableViewCell.m */; };
+		CEE7B72619FD427200963517 /* EditCustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE7B72519FD427200963517 /* EditCustomerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +103,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CE0B1F3B19ED626E00190DDE /* footer_lodyas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footer_lodyas.png; sourceTree = "<group>"; };
 		CE0B1F3D19ED644100190DDE /* clouds.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clouds.jpg; sourceTree = "<group>"; };
 		CE0B1F3F19ED83F700190DDE /* ManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagementViewController.h; sourceTree = "<group>"; };
 		CE0B1F4019ED83F700190DDE /* ManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagementViewController.m; sourceTree = "<group>"; };
@@ -156,7 +152,6 @@
 		CE7FF9F919EE8351004E11E6 /* CustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerViewController.h; sourceTree = "<group>"; };
 		CE7FF9FA19EE8351004E11E6 /* CustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerViewController.m; sourceTree = "<group>"; };
 		CE7FF9FC19EE8435004E11E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		CE7FF9FE19EE9090004E11E6 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		CE7FFA0119EE955F004E11E6 /* VBFDoubleSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFDoubleSegment.h; sourceTree = "<group>"; };
 		CE7FFA0219EE955F004E11E6 /* VBFDoubleSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBFDoubleSegment.m; sourceTree = "<group>"; };
 		CE7FFA0319EE955F004E11E6 /* VBFPopFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBFPopFlatButton.h; sourceTree = "<group>"; };
@@ -230,7 +225,6 @@
 		CE8D1FFE19B4A67A0087FC6E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CE8D200019B66E5C0087FC6E /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		CE8D200119B66E5C0087FC6E /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
-		CE8D200B19B689F40087FC6E /* 19.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 19.jpg; sourceTree = "<group>"; };
 		CE8D200E19B6936D0087FC6E /* edit_user-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit_user-32.png"; sourceTree = "<group>"; };
 		CE8E13AA19F3BE03008D2508 /* EditOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditOrderViewController.h; sourceTree = "<group>"; };
 		CE8E13AB19F3BE03008D2508 /* EditOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditOrderViewController.m; sourceTree = "<group>"; };
@@ -255,7 +249,6 @@
 		CEBA239C19B46D6F00436F01 /* Italish PizzaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Italish PizzaTests-Info.plist"; sourceTree = "<group>"; };
 		CEBA239E19B46D6F00436F01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CEBA23A019B46D6F00436F01 /* Italish_PizzaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Italish_PizzaTests.m; sourceTree = "<group>"; };
-		CEC12E7919C6DAA000358027 /* 20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 20.jpg; sourceTree = "<group>"; };
 		CECC7F1E19F0F03000B4267F /* CreateOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateOrderViewController.h; sourceTree = "<group>"; };
 		CECC7F1F19F0F03000B4267F /* CreateOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateOrderViewController.m; sourceTree = "<group>"; };
 		CECC7F2119F0F28300B4267F /* ItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCollectionViewCell.h; sourceTree = "<group>"; };
@@ -264,6 +257,8 @@
 		CECC7F2519F129B000B4267F /* ConfirmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmViewController.m; sourceTree = "<group>"; };
 		CECC7F2719F12CB700B4267F /* ConfirmOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderTableViewCell.h; sourceTree = "<group>"; };
 		CECC7F2819F12CB700B4267F /* ConfirmOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderTableViewCell.m; sourceTree = "<group>"; };
+		CEE7B72419FD427200963517 /* EditCustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCustomerViewController.h; sourceTree = "<group>"; };
+		CEE7B72519FD427200963517 /* EditCustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCustomerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,8 +438,6 @@
 				CECC7F2519F129B000B4267F /* ConfirmViewController.m */,
 				CE249CBF19F251450084861B /* CreatBookingViewController.h */,
 				CE249CC019F251450084861B /* CreatBookingViewController.m */,
-				CE7FF9F919EE8351004E11E6 /* CustomerViewController.h */,
-				CE7FF9FA19EE8351004E11E6 /* CustomerViewController.m */,
 				CE249CE319F2A6300084861B /* ReportViewController.h */,
 				CE249CE419F2A6300084861B /* ReportViewController.m */,
 				CE249CEB19F375890084861B /* TableSelectViewController.h */,
@@ -453,6 +446,10 @@
 				CE8E13AB19F3BE03008D2508 /* EditOrderViewController.m */,
 				CE5F42AD19F4108E00F3516D /* EditAddItemViewController.h */,
 				CE5F42AE19F4108E00F3516D /* EditAddItemViewController.m */,
+				CE7FF9F919EE8351004E11E6 /* CustomerViewController.h */,
+				CE7FF9FA19EE8351004E11E6 /* CustomerViewController.m */,
+				CEE7B72419FD427200963517 /* EditCustomerViewController.h */,
+				CEE7B72519FD427200963517 /* EditCustomerViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -480,11 +477,7 @@
 				CE5F42B219F45FD800F3516D /* reports.png */,
 				CE5F42B319F45FD800F3516D /* list.png */,
 				CE5F42B419F45FD800F3516D /* user.png */,
-				CE7FF9FE19EE9090004E11E6 /* plus.png */,
 				CE0B1F3D19ED644100190DDE /* clouds.jpg */,
-				CE0B1F3B19ED626E00190DDE /* footer_lodyas.png */,
-				CEC12E7919C6DAA000358027 /* 20.jpg */,
-				CE8D200B19B689F40087FC6E /* 19.jpg */,
 				CE8D200E19B6936D0087FC6E /* edit_user-32.png */,
 			);
 			name = Images;
@@ -656,18 +649,14 @@
 				CE5F42B619F45FD800F3516D /* bookmark.png in Resources */,
 				CE5F42B719F45FD800F3516D /* reports.png in Resources */,
 				CE8D200F19B6936D0087FC6E /* edit_user-32.png in Resources */,
-				CE0B1F3C19ED626E00190DDE /* footer_lodyas.png in Resources */,
 				CE5F42B919F45FD800F3516D /* user.png in Resources */,
 				CE5F42B819F45FD800F3516D /* list.png in Resources */,
-				CE7FF9FF19EE9090004E11E6 /* plus.png in Resources */,
 				CEBA238E19B46D6F00436F01 /* Images.xcassets in Resources */,
 				CE5F42BD19F460F500F3516D /* food-32.png in Resources */,
 				CE5F42BB19F4608700F3516D /* cutlery-32.png in Resources */,
 				CE0B1F3E19ED644100190DDE /* clouds.jpg in Resources */,
-				CE8D200C19B689F40087FC6E /* 19.jpg in Resources */,
 				CEBA237D19B46D6F00436F01 /* InfoPlist.strings in Resources */,
 				CEBA238619B46D6F00436F01 /* Main.storyboard in Resources */,
-				CEC12E7A19C6DAA000358027 /* 20.jpg in Resources */,
 				CE5F42B519F45FD800F3516D /* customer.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -697,6 +686,7 @@
 				CECC7F2619F129B000B4267F /* ConfirmViewController.m in Sources */,
 				CE8D1FFC19B484550087FC6E /* DatabaseHelper.m in Sources */,
 				CE0B1F4119ED83F700190DDE /* ManagementViewController.m in Sources */,
+				CEE7B72619FD427200963517 /* EditCustomerViewController.m in Sources */,
 				CE7FFA8F19EE97B9004E11E6 /* POPBasicAnimation.mm in Sources */,
 				CE7FFA0619EE955F004E11E6 /* VBFPopFlatButton.m in Sources */,
 				CE8D1FF419B478D10087FC6E /* TabViewController.m in Sources */,
@@ -877,6 +867,7 @@
 				INFOPLIST_FILE = "Italish Pizza/Italish Pizza-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -891,6 +882,7 @@
 				INFOPLIST_FILE = "Italish Pizza/Italish Pizza-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

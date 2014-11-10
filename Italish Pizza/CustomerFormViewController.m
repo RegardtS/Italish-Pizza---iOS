@@ -20,9 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     txtContactNumber.delegate = self;
-    
 }
 
 
@@ -38,7 +36,6 @@
     }
 }
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSLog(@"tester");
     if([string length]==0){
         return YES;
     }
@@ -55,10 +52,6 @@
             return YES;
         }
     }
-    
-   
-    
-    
     return NO;
 }
 

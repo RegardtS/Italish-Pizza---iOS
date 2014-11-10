@@ -139,7 +139,7 @@ bool isShown = false;
     }else if(tag == 11){
         txtPassword.text = [txtPassword.text substringToIndex:[txtPassword.text length] - 1];
     }else{
-        txtPassword.text = [NSString stringWithFormat:@"%@%i",[txtPassword text],tag];
+        txtPassword.text = [NSString stringWithFormat:@"%@%li",[txtPassword text],(long)tag];
     }
     
 }

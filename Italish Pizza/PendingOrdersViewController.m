@@ -167,7 +167,7 @@ NSInteger temp = 0;
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"orderDetailsSegue"]) {
         EditOrderViewController *cVC = [segue destinationViewController];
-        cVC.billID = temp;
+        cVC.billID = (int)temp;
     }
 }
 

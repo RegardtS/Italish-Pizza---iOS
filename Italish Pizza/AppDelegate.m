@@ -23,25 +23,13 @@ DatabaseHelper *db;
         db = [[DatabaseHelper alloc] init];
         [db startingStuff];
         [db addStaffWithUsername:@"Admin" withPassword:@"123" withAuthority:2];
-        [db addStaffWithUsername:@"Mark" withPassword:@"123" withAuthority:1];
-        
-        
-        [defaults setBool:YES forKey:@"Init"];
-        [defaults synchronize];
-        
-        
+        [db addStaffWithUsername:@"Regi" withPassword:@"123" withAuthority:1];
         
         [self populateStockCategories];
         [self populateStock];
-        
-        [db addCustomerWithName:@"Regardt" withSurname:@"Schindler" withContactNum:@"0781150888" withEmail:@""];
-        [db addCustomerWithName:@"Mark" withSurname:@"Feb" withContactNum:@"0881150888" withEmail:@""];
-        [db addCustomerWithName:@"Petrus" withSurname:@"Smit" withContactNum:@"0181150888" withEmail:@""];
-        
-        
-        
-        
-        
+        [self populateCustomers];
+        [defaults setBool:YES forKey:@"Init"];
+        [defaults synchronize];
     }
     return YES;
 }
@@ -105,7 +93,19 @@ DatabaseHelper *db;
     [db addStockItemWithName:@"Espresso"                    withDescription:@"" withPrice:@"24.00"  withCatID:@"5"];
     
 }
-							
+-(void)populateCustomers{
+    [db addCustomerWithName:@"Marie" withSurname:@"Evans" withContactNum:@"+1-202-555-0197" withEmail:@""];
+    [db addCustomerWithName:@"Molly" withSurname:@"Clarke" withContactNum:@"+1-202-555-0176" withEmail:@""];
+    [db addCustomerWithName:@"Ginger" withSurname:@"Page" withContactNum:@"+1-202-555-0162" withEmail:@""];
+    [db addCustomerWithName:@"Jay" withSurname:@"Guerrero" withContactNum:@"+1-202-555-0148" withEmail:@""];
+    [db addCustomerWithName:@"Rosemary" withSurname:@"Montgomery" withContactNum:@"+1-202-555-0113" withEmail:@""];
+    [db addCustomerWithName:@"Joyce" withSurname:@"Luna" withContactNum:@"+1-202-555-0130" withEmail:@""];
+    [db addCustomerWithName:@"Pedro" withSurname:@"Quinn" withContactNum:@"+1-202-555-0113" withEmail:@""];
+    [db addCustomerWithName:@"Nicole" withSurname:@"Padilla" withContactNum:@"+1-202-555-0133" withEmail:@""];
+    [db addCustomerWithName:@"Jane" withSurname:@"Tucker" withContactNum:@"+1-202-555-0103" withEmail:@""];
+    [db addCustomerWithName:@"Christie" withSurname:@"Cook" withContactNum:@"+1-202-555-0198" withEmail:@""];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
